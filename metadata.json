@@ -1,0 +1,6 @@
+{
+  "name": "Dev Portfolio",
+  "description": "A terminal-themed, high-performance portfolio for an IT and Networks student.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
