@@ -1,8 +1,8 @@
 import { Skill, Experience, Education, Project } from './types';
 
 export const PROFILE = {
-  firstName: "PRÉNOM",
-  lastName: "NOM",
+  firstName: "Adéliyi 0. M.",
+  lastName: "ARIORI OLOROUNKO",
   title: "L3 AL",
   about: "Salut je suis étudiant mous entron enaquier dn corques. pour vots à devlops je lin et continuer contact.",
   contact: {
