@@ -1,22 +1,40 @@
-import { Skill, Experience, Education } from './types';
+import { Skill, Experience, Education, Project } from './types';
 
 export const PROFILE = {
   firstName: "PRÉNOM",
   lastName: "NOM",
-  title: "L3 IRT",
+  title: "L3 AL",
   about: "Salut je suis étudiant mous entron enaquier dn corques. pour vots à devlops je lin et continuer contact.",
   contact: {
     phone: "06 00 00 00 00",
     email: "info@studiant.rarantes.contact..com",
-    github: "github/tonnom",
+    // Bare username/slug only — components build the full URL + display label from this.
+    github: "tonnom",
+    linkedin: "tonprofil",
     footerEmail: "Info@gmail.com"
-  }
+  },
+  /** Path to the CV file served from /public — see cv.pdf. */
+  cvUrl: "/cv.pdf"
 };
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
     name: "Dévelopements d'anclice le design",
-    description: "Projects - triammin enaptions, secone.is...."
+    description: "Projects - triammin enaptions, secone.is....",
+    tags: ["React", "TypeScript"],
+    link: "https://github.com/tonnom/projet-1"
+  },
+  {
+    name: "Deuxième projet à compléter",
+    description: "Remplace ce texte par une vraie description de projet (contexte, stack, ton rôle).",
+    tags: ["Java", "Spring"],
+    link: "https://github.com/tonnom/projet-2"
+  },
+  {
+    name: "Troisième projet à compléter",
+    description: "Remplace ce texte par une vraie description de projet (contexte, stack, ton rôle).",
+    tags: ["UML", "Architecture"],
+    link: "https://github.com/tonnom/projet-3"
   }
 ];
 
@@ -34,7 +52,7 @@ export const EXPERIENCES: Experience[] = [
   {
     period: "Projects - 2022, ätitex de-ut d'un 2023",
     role: "Déveloper en étediant",
-    company: "L3 IRT",
+    company: "L3 AL",
     description: "",
   },
   {
@@ -48,7 +66,7 @@ export const EXPERIENCES: Experience[] = [
 export const EDUCATIONS: Education[] = [
   {
     period: '2025 - 2026',
-    degree: 'L3 IRT',
+    degree: 'L3 AL',
   },
   {
     period: '2023 - 2025',

@@ -16,3 +16,13 @@ export interface Education {
   degree: string;
   institution?: string;
 }
+
+export interface Project {
+  name: string;
+  description: string;
+  /** Optional screenshot/thumbnail URL. Falls back to a themed placeholder when absent. */
+  image?: string;
+  /** Optional link to the repo/live demo. */
+  link?: string;
+  tags?: string[];
+}

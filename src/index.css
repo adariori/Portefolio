@@ -9,11 +9,19 @@
   --font-outline: "Bungee Outline", cursive;
   
   --color-accent: #2563EB;
+  /* Lighter, higher-contrast blue for text on the dark background — the
+     saturated --color-accent reads great on buttons/icons but is too low
+     contrast (~3:1) for body-ish text on bg-dark. This hits ~6.8:1. */
+  --color-accent-light: #60A5FA;
   --color-bg-dark: #0F172A;
   --color-card-dark: #1E293B;
 }
 
 @layer base {
+  html, body {
+    @apply overflow-x-hidden;
+  }
+
   body {
     @apply font-sans bg-bg-dark text-white;
   }
@@ -26,4 +34,14 @@
 .terminal-cursor::after {
   content: '|';
   @apply animate-pulse text-accent ml-1;
+}
+
+/* Respect user preference: kill motion instead of forcing it on everyone. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
