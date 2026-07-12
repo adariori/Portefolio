@@ -3,9 +3,7 @@ import { motion } from 'motion/react';
 import { Send, MessageSquare } from 'lucide-react';
 import { PROFILE } from '../data';
 
-// No backend on a static site, so "submit" builds a mailto: link with the
-// fields pre-filled — the visitor's own mail client sends it. Zero API keys,
-// zero maintenance, works everywhere.
+
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -95,7 +93,6 @@ export default function ContactForm() {
             <Send aria-hidden size={16} />
             Envoyer
           </motion.button>
-          <p className="text-white/30 text-xs font-mono">Ouvre ton client mail avec le message pré-rempli.</p>
         </div>
       </motion.form>
     </section>

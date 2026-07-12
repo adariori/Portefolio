@@ -66,7 +66,7 @@ export const EXPERIENCES: Experience[] = [
 export const EDUCATIONS: Education[] = [
   {
     period: '2025 - 2026',
-    degree: 'L3 AL',
+    degree: 'Bac+3 Informatique',
   },
   {
     period: '2023 - 2025',

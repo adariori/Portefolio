@@ -4,6 +4,10 @@ import { Github, Linkedin, Download } from 'lucide-react';
 import { PROFILE } from '../data';
 import MagneticLink from './MagneticLink';
 
+// Explicit escape (not a literal space typed in source) so there is no
+// ambiguity about which character this is: U+00A0 non-breaking space.
+const NBSP = ' ';
+
 // Reusable per-letter split so both name blocks share the same kinetic reveal.
 function KineticWord({ text, delayOffset = 0, className = '' }: { text: string; delayOffset?: number; className?: string }) {
   return (
@@ -20,7 +24,10 @@ function KineticWord({ text, delayOffset = 0, className = '' }: { text: string; 
           }}
           className="inline-block"
         >
-          {char}
+          {/* A plain space is the entire content of this inline-block, so
+              browsers collapse it to zero width — swap for a non-breaking
+              space so multi-word names don't glue their letters together. */}
+          {char === ' ' ? NBSP : char}
         </motion.span>
       ))}
     </span>
@@ -61,7 +68,7 @@ export default function Header() {
           {/* Fluid clamp instead of a fixed 10rem jump at lg: — scales with the
               viewport but caps out so it stays proportional on large/fullscreen screens. */}
           <h1 className="text-[clamp(2.5rem,6vw,6.5rem)] font-black tracking-tight uppercase leading-[0.85] md:leading-[0.75] mb-2 flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start justify-center md:justify-start">
-            <KineticWord text={PROFILE.firstName} delayOffset={0.1} className="font-gothic text-white" />
+            <KineticWord text={PROFILE.firstName} delayOffset={0.1} className="font-outline text-white" />
             <KineticWord text={PROFILE.lastName} delayOffset={0.1 + PROFILE.firstName.length * 0.035} className="font-outline text-accent-light" />
           </h1>
         </div>
