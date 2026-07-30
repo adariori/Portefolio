@@ -3,12 +3,11 @@ import { Skill, Experience, Education, Project } from './types';
 export const PROFILE = {
   firstName: "Adéliyi 0. M.",
   lastName: "ARIORI OLOROUNKO",
-  title: "L3 AL",
+  title: "Dev full stack Junior",
   about: "Salut je suis étudiant mous entron enaquier dn corques. pour vots à devlops je lin et continuer contact.",
   contact: {
     phone: "06 00 00 00 00",
     email: "info@studiant.rarantes.contact..com",
-    // Bare username/slug only — components build the full URL + display label from this.
     github: "tonnom",
     linkedin: "tonprofil",
     footerEmail: "Info@gmail.com"
@@ -39,13 +38,12 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  { name: 'As++', percentage: 85, icon: 'Code' },
-  { name: 'Gara', percentage: 90, icon: 'FileCode' },
-  { name: 'SSL', percentage: 75, icon: 'Lock' },
-  { name: 'HTMI', percentage: 80, icon: 'Layout' },
-  { name: 'Python', percentage: 85, icon: 'FileCode' },
-  { name: 'SeMI', percentage: 70, icon: 'Cpu' },
-  { name: 'WAT', percentage: 65, icon: 'Activity' },
+  { name: 'HTML', percentage: 75, icon: 'Layout' },
+  { name: 'CSS', percentage: 70, icon: 'Palette' },
+  { name: 'JavaScript', percentage: 45, icon: 'Braces' },
+  { name: 'PHP', percentage: 65, icon: 'Server' },
+  { name: 'Laravel', percentage: 45, icon: 'Boxes' },
+  { name: 'React', percentage: 45, icon: 'Atom' },
 ];
 
 export const EXPERIENCES: Experience[] = [
