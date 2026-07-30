@@ -4,13 +4,13 @@ export const PROFILE = {
   firstName: "Adéliyi 0. M.",
   lastName: "ARIORI OLOROUNKO",
   title: "Dev full stack Junior",
-  about: "Salut je suis étudiant mous entron enaquier dn corques. pour vots à devlops je lin et continuer contact.",
+  about: "Étudiant en 3ème année, développeur web fullstack junior. Je construis des applications avec React et Laravel, avec des bases solides en PHP, MySQL, Tailwind et Bootstrap. J'apprends chaque jour un peu plus.",
   contact: {
-    phone: "06 00 00 00 00",
-    email: "info@studiant.rarantes.contact..com",
-    github: "tonnom",
-    linkedin: "tonprofil",
-    footerEmail: "Info@gmail.com"
+    phone: "01 61 87 32 98",
+    email: "adariori3@gmail.com",
+    github: "adariori",
+    linkedin: "ad%C3%A9liyi-ariori-olorounko-4812203a1",
+    footerEmail: "adariori3@gmail.com"
   },
   /** Path to the CV file served from /public — see cv.pdf. */
   cvUrl: "/cv.pdf"
@@ -44,19 +44,21 @@ export const SKILLS: Skill[] = [
   { name: 'PHP', percentage: 65, icon: 'Server' },
   { name: 'Laravel', percentage: 45, icon: 'Boxes' },
   { name: 'React', percentage: 45, icon: 'Atom' },
+  { name: 'Tailwind CSS', percentage: 35, icon: 'Wind' },
+  { name: 'Bootstrap', percentage: 35, icon: 'Layers' },
 ];
 
 export const EXPERIENCES: Experience[] = [
   {
-    period: "Projects - 2022, ätitex de-ut d'un 2023",
-    role: "Déveloper en étediant",
-    company: "L3 AL",
-    description: "",
+    period: "2024 - 2025",
+    role: "Développeur web freelance",
+    company: "Projets personnels",
+    description: "Sites vitrines pour des particuliers.",
   },
   {
-    period: "Projects - 2021, ätitex de non d'un 2023",
-    role: "Déveloper ondäit",
-    company: "Destent Gonate",
+    period: "2025",
+    role: "Certification développement web",
+    company: "HTML / CSS / JavaScript / PHP",
     description: "",
   }
 ];
@@ -64,10 +66,14 @@ export const EXPERIENCES: Experience[] = [
 export const EDUCATIONS: Education[] = [
   {
     period: '2025 - 2026',
-    degree: 'Bac+3 Informatique',
+    degree: 'Bac+3 AL',
   },
   {
     period: '2023 - 2025',
-    degree: 'Bac+2 Informatique',
+    degree: 'Bac+2 AL',
+  },
+  {
+    period: '2025',
+    degree: 'Formation développement web (HTML / CSS / JavaScript / PHP)',
   }
 ];
