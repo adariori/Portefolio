@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { EXPERIENCES, EDUCATIONS, PROJECTS } from '../data';
-import { Briefcase, GraduationCap, Folder, FolderGit2, ArrowUpRight } from 'lucide-react';
+import { Briefcase, GraduationCap, Folder, FolderGit2, ArrowUpRight, Github } from 'lucide-react';
 
 export default function ContentGrid() {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -75,22 +75,42 @@ export default function ContentGrid() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Projects</h2>
         </motion.div>
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 ml-5">
-          {PROJECTS.map((proj, idx) => (
-            <motion.a
+          {PROJECTS.map((proj, idx) => {
+            const primaryUrl = proj.demoUrl ?? proj.repoUrl;
+            const showRepoButton = proj.repoUrl && proj.demoUrl;
+            return (
+            <motion.div
               key={idx}
-              href={proj.link}
-              target={proj.link ? '_blank' : undefined}
-              rel={proj.link ? 'noopener noreferrer' : undefined}
-              aria-label={`Voir le projet ${proj.name}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -4 }}
-              className="group block rounded-xl overflow-hidden border border-white/5 bg-white/[0.02] hover:border-accent-light/30 transition-colors"
+              className="group relative rounded-xl overflow-hidden border border-white/5 bg-white/[0.02] hover:border-accent-light/30 transition-colors"
             >
+              {/* Stretched primary link — opens the live demo (falls back to the repo) */}
+              <a
+                href={primaryUrl}
+                target={primaryUrl ? '_blank' : undefined}
+                rel={primaryUrl ? 'noopener noreferrer' : undefined}
+                aria-label={`Voir le projet ${proj.name}`}
+                className="absolute inset-0 z-0"
+              />
+
+              {showRepoButton && (
+                <a
+                  href={proj.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Voir le code source de ${proj.name} sur GitHub`}
+                  className="absolute top-3 right-3 z-10 h-8 w-8 rounded-lg bg-bg-dark/80 backdrop-blur flex items-center justify-center text-white/60 hover:text-white hover:bg-bg-dark transition-colors"
+                >
+                  <Github size={16} />
+                </a>
+              )}
+
               {/* Thumbnail — real screenshot if `image` is set, themed placeholder otherwise */}
-              <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-card-dark to-bg-dark">
+              <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-card-dark to-bg-dark pointer-events-none">
                 {proj.image ? (
                   <img
                     src={proj.image}
@@ -106,7 +126,7 @@ export default function ContentGrid() {
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/90 via-bg-dark/10 to-transparent" />
               </div>
 
-              <div className="p-4">
+              <div className="p-4 pointer-events-none">
                 <h4 className="text-white/90 font-bold group-hover:text-white transition-colors flex items-center gap-1">
                   {proj.name}
                   <ArrowUpRight
@@ -129,8 +149,9 @@ export default function ContentGrid() {
                   </div>
                 )}
               </div>
-            </motion.a>
-          ))}
+            </motion.div>
+            );
+          })}
         </div>
       </section>
 

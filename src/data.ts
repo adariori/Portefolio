@@ -18,22 +18,39 @@ export const PROFILE = {
 
 export const PROJECTS: Project[] = [
   {
-    name: "Dévelopements d'anclice le design",
-    description: "Projects - triammin enaptions, secone.is....",
-    tags: ["React", "TypeScript"],
-    link: "https://github.com/tonnom/projet-1"
+    name: "Technop",
+    description: "Site vitrine développé avec Laravel 12 pour l'entreprise Technop, présentant ses services, son équipe et ses coordonnées.",
+    tags: ["Laravel", "PHP", "Tailwind CSS", "Vite", "Pest"],
+    demoUrl: "https://technop.onrender.com/accueil",
+    repoUrl: "https://github.com/adariori/Technop"
   },
   {
-    name: "Deuxième projet à compléter",
-    description: "Remplace ce texte par une vraie description de projet (contexte, stack, ton rôle).",
-    tags: ["Java", "Spring"],
-    link: "https://github.com/tonnom/projet-2"
+    name: "Grillades Tropicales",
+    description: "Application full-stack (React 19 + Express + TypeScript) pour un restaurant : menu interactif, commande en ligne, réservation de table, et back-office complet (CRUD, statistiques, gestion des commandes/réservations).",
+    tags: ["React", "Express", "Node.js", "TypeScript", "Tailwind CSS"],
+    demoUrl: "https://gt-one-phi.vercel.app/",
+    repoUrl: "https://github.com/adariori/GT"
   },
   {
-    name: "Troisième projet à compléter",
-    description: "Remplace ce texte par une vraie description de projet (contexte, stack, ton rôle).",
-    tags: ["UML", "Architecture"],
-    link: "https://github.com/tonnom/projet-3"
+    name: "Le Carré Bar & Lounge",
+    description: "Menu numérique accessible via QR code pour le Bar & Lounge Le Carré (Bénin), avec commande directe sur WhatsApp, écran de démarrage animé et interface responsive.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Motion"],
+    demoUrl: "https://mlk-229.vercel.app/",
+    repoUrl: "https://github.com/adariori/Mlk-229-bar-lounge"
+  },
+  {
+    name: "Fighting Spirit Karate Club",
+    description: "Site vitrine de l'association sportive Fighting Spirit Karate Club, club de Karaté Shotokan basé à Cotonou (Bénin) : présentation du dojo, du sensei, des cours, tarifs et valeurs.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
+    demoUrl: "https://karatesite.vercel.app/",
+    repoUrl: "https://github.com/adariori/Fighting-Spirit-Karate-Club"
+  },
+  {
+    name: "TechStock",
+    description: "Application de gestion de parc informatique développée avec Laravel 12 : suivi des appareils, des salles, des catégories et de l'historique des interventions (maintenance, réparation).",
+    tags: ["Laravel", "PHP", "Blade", "Tailwind CSS", "Vite"],
+    demoUrl: "https://techstock-three.vercel.app/devices",
+    repoUrl: "https://github.com/adariori/Techstock"
   }
 ];
 
