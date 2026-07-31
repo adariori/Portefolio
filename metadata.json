@@ -2,5 +2,5 @@
   "name": "Dev Portfolio",
   "description": "A terminal-themed, high-performance portfolio for a Software Architecture (AL) student.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
