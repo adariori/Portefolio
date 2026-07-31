@@ -9,27 +9,43 @@ import MagneticLink from './MagneticLink';
 const NBSP = ' ';
 
 // Reusable per-letter split so both name blocks share the same kinetic reveal.
+// Letters are grouped by word in a nested inline-block so the browser can
+// only wrap between words, never mid-word, no matter the viewport width.
 function KineticWord({ text, delayOffset = 0, className = '' }: { text: string; delayOffset?: number; className?: string }) {
+  const words = text.split(' ');
+  let charIndex = 0;
+
   return (
     <span className={`inline-flex flex-wrap justify-center md:justify-start ${className}`} aria-label={text}>
-      {text.split('').map((char, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0, y: 60, rotate: 8, scale: 0.85 }}
-          animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
-          transition={{
-            delay: delayOffset + i * 0.035,
-            duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="inline-block"
-        >
-          {/* A plain space is the entire content of this inline-block, so
-              browsers collapse it to zero width — swap for a non-breaking
-              space so multi-word names don't glue their letters together. */}
-          {char === ' ' ? NBSP : char}
-        </motion.span>
-      ))}
+      {words.map((word, wordIdx) => {
+        const letters = word.split('').map((char) => {
+          const i = charIndex++;
+          return (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 60, rotate: 8, scale: 0.85 }}
+              animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+              transition={{
+                delay: delayOffset + i * 0.035,
+                duration: 0.7,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="inline-block"
+            >
+              {char}
+            </motion.span>
+          );
+        });
+
+        if (wordIdx < words.length - 1) charIndex++; // account for the space between words
+
+        return (
+          <span key={wordIdx} className="inline-block whitespace-nowrap">
+            {letters}
+            {wordIdx < words.length - 1 ? NBSP : ''}
+          </span>
+        );
+      })}
     </span>
   );
 }
