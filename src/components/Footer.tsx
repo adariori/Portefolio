@@ -10,15 +10,12 @@ export default function Footer() {
       transition={{ delay: 2.2, scale: { type: 'spring', stiffness: 300, damping: 20 } }}
       className="relative mt-12 md:mt-20 bg-white/[0.02] border border-white/5 hover:border-accent-light/30 text-white py-4 px-4 sm:px-6 md:px-8 rounded-xl flex flex-wrap items-center justify-center gap-3 font-bold transition-colors text-xs sm:text-sm md:text-base text-center overflow-hidden"
     >
-      <span className="font-outline tracking-wider text-white/80 min-w-0 break-words">
-        Discutons de votre prochain projet —{' '}
-        <a
-          href={`mailto:${PROFILE.contact.footerEmail}`}
-          className="text-accent-light underline decoration-accent-light/40 underline-offset-4 hover:decoration-accent-light transition-colors"
-        >
-          {PROFILE.contact.footerEmail}
-        </a>
-      </span>
+      <a
+        href="#contact"
+        className="font-outline tracking-wider text-white/80 min-w-0 break-words underline decoration-accent-light/40 underline-offset-4 hover:decoration-accent-light hover:text-white transition-colors"
+      >
+        Discutons de votre prochain projet
+      </a>
 
       {/* Status pill — driven by PROFILE.available so it reflects real status
           instead of being hardcoded. Pulses only while available. */}

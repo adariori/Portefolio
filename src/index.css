@@ -22,6 +22,10 @@
     @apply overflow-x-hidden;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply font-sans bg-bg-dark text-white;
   }
