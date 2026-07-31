@@ -1,19 +1,48 @@
 import { useState, type FormEvent } from 'react';
-import { motion } from 'motion/react';
-import { Send, MessageSquare } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import emailjs from '@emailjs/browser';
+import { Send, MessageSquare, CheckCircle2, AlertCircle } from 'lucide-react';
 import { PROFILE } from '../data';
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
+type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<SubmitStatus>('idle');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Contact depuis le portfolio — ${name || 'visiteur'}`);
-    const body = encodeURIComponent(`${message}\n\n—\n${name}\n${email}`);
-    window.location.href = `mailto:${PROFILE.contact.email}?subject=${subject}&body=${body}`;
+
+    // No EmailJS keys configured (e.g. local dev without .env) — fall back to
+    // the mailto link so the form still works end to end.
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      const subject = encodeURIComponent(`Contact depuis le portfolio — ${name || 'visiteur'}`);
+      const body = encodeURIComponent(`${message}\n\n—\n${name}\n${email}`);
+      window.location.href = `mailto:${PROFILE.contact.email}?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        { name, email, message, to_email: PROFILE.contact.email },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      setStatus('sent');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch {
+      setStatus('error');
+    }
   };
 
   const inputClass =
@@ -85,14 +114,42 @@ export default function ContactForm() {
         <div className="flex flex-wrap items-center gap-4 pt-1">
           <motion.button
             type="submit"
+            disabled={status === 'sending'}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-            className="flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-colors"
+            className="flex items-center gap-2 bg-accent hover:bg-accent-light disabled:opacity-60 disabled:pointer-events-none text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-colors"
           >
             <Send aria-hidden size={16} />
-            Envoyer
+            {status === 'sending' ? 'Envoi...' : 'Envoyer'}
           </motion.button>
+
+          <AnimatePresence mode="wait">
+            {status === 'sent' && (
+              <motion.p
+                key="sent"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center gap-1.5 text-emerald-400 text-xs sm:text-sm"
+              >
+                <CheckCircle2 aria-hidden size={16} />
+                Message envoyé, merci !
+              </motion.p>
+            )}
+            {status === 'error' && (
+              <motion.p
+                key="error"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center gap-1.5 text-red-400 text-xs sm:text-sm"
+              >
+                <AlertCircle aria-hidden size={16} />
+                Échec de l'envoi, réessaie ou écris à {PROFILE.contact.email}
+              </motion.p>
+            )}
+          </AnimatePresence>
         </div>
       </motion.form>
     </section>

@@ -13,7 +13,9 @@ export const PROFILE = {
     footerEmail: "adariori3@gmail.com"
   },
   /** Path to the CV file served from /public — see cv.pdf. */
-  cvUrl: "/cv.pdf"
+  cvUrl: "/cv.pdf",
+  /** Drives the footer status pill: pulsing green "Disponible" vs. static grey "Indisponible". */
+  available: true
 };
 
 export const PROJECTS: Project[] = [
