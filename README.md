@@ -1,6 +1,6 @@
 # Dev Portfolio
 
-Portfolio personnel à thème "terminal", pensé pour un étudiant en Architecture Logicielle (L3 AL). Une seule page présente le profil, un bloc "about" façon terminal bash, les expériences, projets, formations et compétences (avec cercles de progression animés).
+Portfolio personnel à thème "terminal" d'Adéliyi Ariori Olorounko, étudiant en développement web fullstack. Une seule page présente le profil, un bloc "about" façon terminal bash, les expériences, projets, formations et compétences (avec cercles de progression animés).
 
 ## Stack technique
 
@@ -9,8 +9,9 @@ Portfolio personnel à thème "terminal", pensé pour un étudiant en Architectu
 - **Tailwind CSS 4** (via `@tailwindcss/vite`, config par `@theme` dans `src/index.css`)
 - **Motion** (`motion/react`, ex-Framer Motion) pour toutes les animations
 - **lucide-react** pour les icônes
+- **EmailJS** pour l'envoi réel des emails du formulaire de contact, sans backend
 
-Le `package.json` liste aussi `@google/genai`, `express` et `dotenv` (héritage d'un template Google AI Studio), mais rien dans le code actuel ne les utilise : le projet est en réalité 100 % front-end statique.
+Projet 100 % front-end statique, sans serveur.
 
 ## Structure
 
@@ -27,20 +28,22 @@ src/
     ├── InfoSection.tsx   # bloc "about" style terminal + contacts
     ├── ContentGrid.tsx   # expériences, projets (vignettes), formation
     ├── SkillsGrid.tsx    # grille de compétences avec anneaux de progression SVG
-    ├── ContactForm.tsx   # formulaire de contact (construit un lien mailto:)
+    ├── ContactForm.tsx   # formulaire de contact (envoi via EmailJS, repli mailto: si non configuré)
     ├── MagneticLink.tsx  # lien avec effet magnétique, partagé entre composants
     └── Footer.tsx        # bandeau de contact final
 ```
 
 Toute la donnée affichée vient d'un seul fichier, `src/data.ts` (objet `PROFILE`, tableaux `PROJECTS`, `SKILLS`, `EXPERIENCES`, `EDUCATIONS`), ce qui rend le site facile à personnaliser sans toucher aux composants.
 
-`public/` contient les assets statiques servis à la racine : `favicon.svg`, `og-image.png` (image de partage réseaux sociaux) et `cv.pdf` (CV auto-généré depuis `data.ts` — à régénérer une fois le vrai contenu en place).
+`public/` contient les assets statiques servis à la racine : `favicon.svg`, `og-image.png` (image de partage réseaux sociaux) et `cv.pdf`.
 
 ## Point d'attention
 
-Le contenu actuel de `src/data.ts` est du texte placeholder mal généré (nom "PRÉNOM NOM", phrases incohérentes en français, compétences mal orthographiées comme "As++", "Gara", "HTMI"). Ce fichier doit être réécrit avec les vraies informations avant mise en ligne — le CV PDF, l'image OG et le favicon en dépendent aussi indirectement (nom affiché en dur dans `index.html` et dans le script de génération du CV).
+Le Header affiche encore un monogramme (initiales sur fond bleu) en attendant une vraie photo de profil : remplacer le bloc dans `Header.tsx` par un `<img>` une fois la photo disponible.
 
-Le monogramme dans le Header (initiales sur fond bleu) est un placeholder en attendant une vraie photo : remplacer le bloc commenté dans `Header.tsx` par un `<img>`.
+## Variables d'environnement
+
+Le formulaire de contact envoie un vrai email via [EmailJS](https://emailjs.com) (gratuit jusqu'à 200 emails/mois). Copier `.env.example` en `.env` et renseigner les 3 clés `VITE_EMAILJS_*` (voir les commentaires du fichier pour la procédure). Sans ces clés, le formulaire retombe automatiquement sur un lien `mailto:`.
 
 ## Lancer en local
 
@@ -53,3 +56,7 @@ npm run build    # build de production
 npm run preview  # prévisualise le build
 npm run lint     # vérification TypeScript (tsc --noEmit)
 ```
+
+## CI
+
+Un workflow GitHub Actions (`.github/workflows/ci.yml`) vérifie automatiquement le type-check et le build à chaque push/PR sur `main`.

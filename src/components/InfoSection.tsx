@@ -3,6 +3,12 @@ import { Phone, Mail, Github, Linkedin } from 'lucide-react';
 import { PROFILE } from '../data';
 import MagneticLink from './MagneticLink';
 
+// mailto: silently fails when the visitor's browser/OS has no default mail
+// client configured. Gmail's own compose URL always works in a new tab,
+// since PROFILE.contact.email is a Gmail address.
+const gmailComposeUrl = (email: string) =>
+  `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+
 export default function InfoSection() {
   const about = PROFILE.about;
 
@@ -43,7 +49,14 @@ export default function InfoSection() {
             className="mt-4 text-white/40 flex flex-wrap items-center gap-2"
           >
             <span>Contact</span>
-            <a href={`mailto:${PROFILE.contact.email}`} className="text-white/60 hover:text-accent transition-colors underline decoration-accent/30 underline-offset-4 break-all">{PROFILE.contact.email}</a>
+            <a
+              href={gmailComposeUrl(PROFILE.contact.email)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-accent transition-colors underline decoration-accent/30 underline-offset-4 break-all"
+            >
+              {PROFILE.contact.email}
+            </a>
           </motion.div>
         </div>
       </motion.div>
@@ -59,8 +72,9 @@ export default function InfoSection() {
           <span className="font-mono text-sm tracking-tighter">{PROFILE.contact.phone}</span>
         </MagneticLink>
         <MagneticLink
-          href={`mailto:${PROFILE.contact.email}`}
-          ariaLabel="Envoyer un email"
+          href={gmailComposeUrl(PROFILE.contact.email)}
+          target="_blank"
+          ariaLabel="Envoyer un email via Gmail"
           className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors"
         >
           <Mail aria-hidden size={16} className="text-accent shrink-0" />
