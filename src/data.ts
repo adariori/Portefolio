@@ -4,7 +4,7 @@ export const PROFILE = {
   firstName: "Adéliyi 0. M.",
   lastName: "ARIORI OLOROUNKO",
   title: "Développeur Web & Mobile",
-  about: "Étudiant en 3ème année, développeur web fullstack junior. Je construis des applications avec React et Laravel, avec des bases solides en PHP, MySQL, Tailwind et Bootstrap. J'apprends chaque jour un peu plus.",
+  about: "Étudiant en 3ème année, développeur web & mobile. Je construis des applications avec React et Laravel, avec des bases solides en PHP, MySQL, Tailwind et Bootstrap. J'apprends chaque jour un peu plus.",
   contact: {
     phone: "+229 01 61 87 32 98",
     email: "adariori3@gmail.com",
