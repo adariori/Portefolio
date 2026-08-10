@@ -92,7 +92,7 @@ export default function Header() {
           initial={{ opacity: 0, letterSpacing: '-0.05em' }}
           animate={{ opacity: 1, letterSpacing: '0.02em' }}
           transition={{ delay: 0.9, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-          className="text-accent-light/70 font-outline text-xl sm:text-2xl md:text-3xl tracking-wide mt-4 uppercase"
+          className="text-accent-light font-black text-xl sm:text-2xl md:text-3xl tracking-wide mt-4 uppercase"
         >
           {PROFILE.title}
         </motion.p>
