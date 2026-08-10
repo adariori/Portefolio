@@ -9,7 +9,7 @@ export const PROFILE = {
     phone: "01 61 87 32 98",
     email: "adariori3@gmail.com",
     github: "adariori",
-    linkedin: "ad%C3%A9liyi-ariori-olorounko-4812203a1",
+    linkedin: "ad%C3%A9liyi-adeliyi-ariori",
     footerEmail: "adariori3@gmail.com"
   },
   /** Path to the CV file served from /public — see cv.pdf. */
