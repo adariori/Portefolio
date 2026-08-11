@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
     name: "Sophie Mercier Coach",
     description: "Site vitrine pour Sophie Mercier, coach professionnelle, présentant son accompagnement et ses services de coaching.",
     image: "/1.png",
-    tags: ["React", "TypeScript", "Vite", "Gemini API"],
+    tags: ["React", "TypeScript", "Vite"],
     demoUrl: "https://sophie-mercier-coach.vercel.app/"
   }
 ];
