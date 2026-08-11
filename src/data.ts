@@ -58,6 +58,13 @@ export const PROJECTS: Project[] = [
     tags: ["Laravel", "PHP", "Blade", "Tailwind CSS", "Vite"],
     demoUrl: "https://techstock-three.vercel.app/devices",
     repoUrl: "https://github.com/adariori/Techstock"
+  },
+  {
+    name: "Sophie Mercier Coach",
+    description: "Site vitrine pour Sophie Mercier, coach professionnelle, présentant son accompagnement et ses services de coaching.",
+    image: "/1.png",
+    tags: ["React", "TypeScript", "Vite", "Gemini API"],
+    demoUrl: "https://sophie-mercier-coach.vercel.app/"
   }
 ];
 
