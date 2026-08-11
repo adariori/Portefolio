@@ -35,11 +35,7 @@ src/
 
 Toute la donnée affichée vient d'un seul fichier, `src/data.ts` (objet `PROFILE`, tableaux `PROJECTS`, `SKILLS`, `EXPERIENCES`, `EDUCATIONS`), ce qui rend le site facile à personnaliser sans toucher aux composants.
 
-`public/` contient les assets statiques servis à la racine : `favicon.svg`, `og-image.png` (image de partage réseaux sociaux) et `cv.pdf`.
-
-## Point d'attention
-
-Le Header affiche encore un monogramme (initiales sur fond bleu) en attendant une vraie photo de profil : remplacer le bloc dans `Header.tsx` par un `<img>` une fois la photo disponible.
+`public/` contient les assets statiques servis à la racine : `favicon.svg`, `og-image.png` (image de partage réseaux sociaux), `profil.jpeg` (photo de profil affichée dans le Header) et `cv.pdf`.
 
 ## Variables d'environnement
 

@@ -52,7 +52,6 @@ function KineticWord({ text, delayOffset = 0, className = '' }: { text: string; 
 
 export default function Header() {
   const cardRef = useRef<HTMLDivElement>(null);
-  const initials = `${PROFILE.firstName.charAt(0)}${PROFILE.lastName.charAt(0)}`.toUpperCase();
 
   // Magnetic tilt: photo reacts to cursor position like it's floating on a hinge.
   const rotateX = useMotionValue(0);
@@ -145,18 +144,17 @@ export default function Header() {
           style={{ rotateX: springX, rotateY: springY }}
           className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 bg-gradient-to-br from-accent to-bg-dark overflow-hidden shadow-[0_0_50px_rgba(37,99,235,0.4)] group-hover:shadow-[0_0_70px_rgba(37,99,235,0.6)] transition-shadow"
         >
-          {/* Monogram placeholder — swap for a real photo by replacing this
-              block with an <img>. Counter-rotated to stay upright inside the diamond. */}
+          {/* Photo de profil, contre-tournée pour rester droite dans le losange. */}
           <motion.div
             initial={{ rotate: -45, scale: 1.2 }}
             animate={{ rotate: -45, scale: 1.2 }}
-            role="img"
-            aria-label={`Photo de profil de ${PROFILE.firstName} ${PROFILE.lastName}`}
-            className="h-full w-full flex items-center justify-center select-none"
+            className="h-full w-full select-none"
           >
-            <span className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white/90 group-hover:text-white tracking-tight transition-colors duration-300">
-              {initials}
-            </span>
+            <img
+              src="/profil.jpeg"
+              alt={`Photo de profil de ${PROFILE.firstName} ${PROFILE.lastName}`}
+              className="h-full w-full object-cover"
+            />
           </motion.div>
           {/* Sheen that tracks the tilt — sells the "glass over metal" feel */}
           <motion.div
