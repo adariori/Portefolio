@@ -65,6 +65,13 @@ export const PROJECTS: Project[] = [
     image: "/1.png",
     tags: ["React", "TypeScript", "Vite"],
     demoUrl: "https://sophie-mercier-coach.vercel.app/"
+  },
+  {
+    name: "Marcus Reid Personal Trainer",
+    description: "Site vitrine pour Marcus Reid, coach sportif personnel, présentant ses programmes d'entraînement et ses services.",
+    image: "/2.png",
+    tags: ["React", "TypeScript", "Vite"],
+    demoUrl: "https://marcus-reid-personal-trainer.vercel.app/"
   }
 ];
 
