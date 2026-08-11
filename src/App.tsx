@@ -4,6 +4,7 @@ import Loader from './components/Loader';
 import Header from './components/Header';
 import InfoSection from './components/InfoSection';
 import ContentGrid from './components/ContentGrid';
+import ProjectsGrid from './components/ProjectsGrid';
 import SkillsGrid from './components/SkillsGrid';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -47,6 +48,10 @@ export default function App() {
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 sm:gap-12 lg:gap-16">
           <ContentGrid />
           <SkillsGrid />
+        </div>
+
+        <div className="mt-10 sm:mt-16">
+          <ProjectsGrid />
         </div>
 
         <ContactForm />
