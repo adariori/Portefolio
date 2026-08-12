@@ -8,9 +8,12 @@
  * @project   Dev Portfolio
  * @version   0.0.0
  * @year      2026
+ * @stack     React / TypeScript / Vite / Tailwind CSS
  *
- * @license   MIT License
+ * @license   Creative Commons BY-NC-ND 4.0
  *            © 2026 ARIORI OLOROUNKO Adéliyi Odjouola Moshood
+ *            Consultation autorisée à titre de référence uniquement.
+ *            Toute réutilisation commerciale ou modification est interdite.
  *            Voir le fichier LICENSE à la racine du projet.
  */
 
