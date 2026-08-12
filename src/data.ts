@@ -28,12 +28,12 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/adariori/Technop"
   },
   {
-    name: "Grillades Tropicales",
-    description: "Application full-stack (React 19 + Express + TypeScript) pour un restaurant : menu interactif, commande en ligne, réservation de table, et back-office complet (CRUD, statistiques, gestion des commandes/réservations).",
-    image: "/Grillades-tropicales.png",
-    tags: ["React", "Express", "Node.js", "TypeScript", "Tailwind CSS"],
-    demoUrl: "https://gt-one-phi.vercel.app/",
-    repoUrl: "https://github.com/adariori/GT"
+    name: "Braise Marine",
+    description: "Site vitrine et back-office pour un restaurant de grillades face à la mer, développé en PHP + MySQL : menu en ligne, commandes (livraison/retrait), réservations de table et espace admin de gestion.",
+    image: "/braise.png",
+    tags: ["PHP", "MySQL", "PDO", "Tailwind CSS", "JavaScript"],
+    demoUrl: "https://braise-marine-8ic7.vercel.app/frontend/includes/index.php",
+    repoUrl: "https://github.com/adariori/braise_marine"
   },
   {
     name: "Le Carré Bar & Lounge",
