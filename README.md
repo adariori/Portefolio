@@ -19,14 +19,15 @@ Projet 100 % front-end statique, sans serveur.
 src/
 ├── main.tsx          # point d'entrée, monte <App/>
 ├── App.tsx           # layout général + skip-link + écran de chargement (2s)
-├── data.ts           # toutes les données du profil (à remplir)
+├── data.ts           # toutes les données du profil
 ├── types.ts          # types Skill / Experience / Education / Project
 ├── index.css         # thème Tailwind (couleurs, polices, reduced-motion)
 └── components/
     ├── Loader.tsx        # écran de chargement (log de boot terminal)
-    ├── Header.tsx        # nom + titre + monogramme + réseaux sociaux + bouton CV
+    ├── Header.tsx        # nom + titre + photo de profil + réseaux sociaux + bouton CV
     ├── InfoSection.tsx   # bloc "about" style terminal + contacts
-    ├── ContentGrid.tsx   # expériences, projets (vignettes), formation
+    ├── ContentGrid.tsx   # expériences, formation
+    ├── ProjectsGrid.tsx  # projets (vignettes), en pleine largeur
     ├── SkillsGrid.tsx    # grille de compétences avec anneaux de progression SVG
     ├── ContactForm.tsx   # formulaire de contact (envoi via EmailJS, repli mailto: si non configuré)
     ├── MagneticLink.tsx  # lien avec effet magnétique, partagé entre composants
