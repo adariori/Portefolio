@@ -1,7 +1,24 @@
 import { motion } from 'motion/react';
 import { SKILLS } from '../data';
 import type { Skill } from '../types';
-import * as LucideIcons from 'lucide-react';
+import {
+  Settings,
+  Code,
+  Layout,
+  Palette,
+  Braces,
+  Server,
+  Boxes,
+  Atom,
+  Wind,
+  Layers,
+  type LucideIcon,
+} from 'lucide-react';
+
+// Named imports only — `import * as` would pull in the whole icon set
+// (1000+ icons) and defeat tree-shaking for a handful of icons actually
+// used. Add new skill icons here as SKILLS grows.
+const ICONS: Record<string, LucideIcon> = { Layout, Palette, Braces, Server, Boxes, Atom, Wind, Layers };
 
 // Maps the qualitative self-assessment to a fill amount for the progress
 // ring — capped below 100% even for "Confirmé" so the visual never reads
@@ -28,13 +45,13 @@ export default function SkillsGrid() {
           transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
           className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent"
         >
-          <LucideIcons.Settings size={20} />
+          <Settings size={20} />
         </motion.div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Compétences</h2>
       </motion.div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-y-8 sm:gap-y-12 gap-x-4 px-2">
         {SKILLS.map((skill, idx) => {
-          const Icon = (LucideIcons as any)[skill.icon || 'Code'];
+          const Icon = ICONS[skill.icon || ''] || Code;
           // Slight, non-uniform rotation per card keeps the stagger feeling
           // hand-placed rather than mechanically identical.
           const tilt = (idx % 2 === 0 ? 1 : -1) * 4;
