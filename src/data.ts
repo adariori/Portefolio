@@ -104,7 +104,7 @@ export const EXPERIENCES: Experience[] = [
 export const EDUCATIONS: Education[] = [
   {
     period: '2025 - 2026',
-    degree: 'Licence Informatique, option Analyse et Logiciel (AL) — ESGIS (en cours)',
+    degree: 'Licence Informatique, option Architecture Logicielle (AL) — ESGIS (en cours)',
   },
   {
     period: '2025',
