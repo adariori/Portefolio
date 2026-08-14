@@ -4,7 +4,7 @@ import { Folder, FolderGit2, ArrowUpRight, Github } from 'lucide-react';
 
 export default function ProjectsGrid() {
   return (
-    <section>
+    <section id="projets" className="scroll-mt-24">
       <motion.div
         initial={{ opacity: 0, x: -12 }}
         whileInView={{ opacity: 1, x: 0 }}

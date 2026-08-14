@@ -50,7 +50,7 @@ export default function ContactForm() {
   const labelClass = 'block text-xs font-mono uppercase tracking-widest text-white/40 mb-2';
 
   return (
-    <section id="contact" className="mt-16 sm:mt-24 scroll-mt-8">
+    <section id="contact" className="mt-16 sm:mt-24 scroll-mt-24">
       <motion.div
         initial={{ opacity: 0, x: -12 }}
         whileInView={{ opacity: 1, x: 0 }}

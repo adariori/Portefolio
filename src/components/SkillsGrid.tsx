@@ -31,7 +31,7 @@ const LEVEL_FILL: Record<Skill['level'], number> = {
 
 export default function SkillsGrid() {
   return (
-    <section>
+    <section id="competences" className="scroll-mt-24">
       <motion.div
         initial={{ opacity: 0, x: -12 }}
         whileInView={{ opacity: 1, x: 0 }}

@@ -13,7 +13,7 @@ export default function InfoSection() {
   const about = PROFILE.about;
 
   return (
-    <section className="space-y-12 mb-16">
+    <section id="about" className="space-y-12 mb-16 scroll-mt-24">
       {/* Terminal Box */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Analytics } from '@vercel/analytics/react';
 import Loader from './components/Loader';
+import StickyNav from './components/StickyNav';
 import Header from './components/Header';
 import InfoSection from './components/InfoSection';
 import ContentGrid from './components/ContentGrid';
@@ -56,6 +57,8 @@ export default function App() {
       <AnimatePresence mode="wait">
         {loading && <Loader name={`${PROFILE.firstName} ${PROFILE.lastName}`} />}
       </AnimatePresence>
+
+      {!loading && <StickyNav />}
 
       <motion.div
         id="main-content"
