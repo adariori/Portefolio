@@ -15,8 +15,19 @@ export default function ProjectsGrid() {
         <div aria-hidden className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
           <Folder size={20} />
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Projects</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Projets</h2>
       </motion.div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-2xl text-white/60 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8"
+      >
+        Une sélection de projets réalisés en freelance, en formation ou pour mon propre apprentissage — du site vitrine à l'application full-stack.
+      </motion.p>
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 ml-5">
         {PROJECTS.map((proj, idx) => {
           const primaryUrl = proj.demoUrl ?? proj.repoUrl;

@@ -1,6 +1,7 @@
 export interface Skill {
   name: string;
-  percentage: number;
+  /** Qualitative self-assessment — avoids the false precision of a specific percentage. */
+  level: 'Débutant' | 'Intermédiaire' | 'Confirmé';
   icon?: string;
 }
 

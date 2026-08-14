@@ -64,6 +64,23 @@ export default function ContactForm() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Contact</h2>
       </motion.div>
 
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-2xl mb-6 sm:mb-8"
+      >
+        <p className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-accent mb-3">
+          <span className={`h-2 w-2 rounded-full ${PROFILE.available ? 'bg-emerald-400 animate-pulse' : 'bg-white/30'}`} />
+          {PROFILE.available ? 'Disponible pour de nouveaux projets' : 'Actuellement indisponible'}
+        </p>
+        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Travaillons ensemble</h3>
+        <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+          Un projet web, un stage ou une collaboration ? Discutons-en — laissez-moi un message ou écrivez-moi directement.
+        </p>
+      </motion.div>
+
       <motion.form
         onSubmit={handleSubmit}
         initial={{ opacity: 0, y: 16 }}
@@ -81,7 +98,7 @@ export default function ContactForm() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Ton nom"
+              placeholder="Votre nom"
               className={inputClass}
             />
           </div>
@@ -93,7 +110,7 @@ export default function ContactForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="ton@email.com"
+              placeholder="votre@email.com"
               className={inputClass}
             />
           </div>
@@ -106,7 +123,7 @@ export default function ContactForm() {
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Ton message..."
+            placeholder="Votre message..."
             className={`${inputClass} resize-none`}
           />
         </div>
@@ -146,7 +163,7 @@ export default function ContactForm() {
                 className="flex items-center gap-1.5 text-red-400 text-xs sm:text-sm"
               >
                 <AlertCircle aria-hidden size={16} />
-                Échec de l'envoi, réessaie ou écris à {PROFILE.contact.email}
+                Échec de l'envoi, réessayez ou écrivez à {PROFILE.contact.email}
               </motion.p>
             )}
           </AnimatePresence>

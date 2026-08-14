@@ -1,6 +1,16 @@
 import { motion } from 'motion/react';
 import { SKILLS } from '../data';
+import type { Skill } from '../types';
 import * as LucideIcons from 'lucide-react';
+
+// Maps the qualitative self-assessment to a fill amount for the progress
+// ring — capped below 100% even for "Confirmé" so the visual never reads
+// as a claim of total mastery.
+const LEVEL_FILL: Record<Skill['level'], number> = {
+  Débutant: 33,
+  Intermédiaire: 62,
+  Confirmé: 90,
+};
 
 export default function SkillsGrid() {
   return (
@@ -38,7 +48,7 @@ export default function SkillsGrid() {
               transition={{ delay: idx * 0.08, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
               className="flex flex-col items-center group cursor-pointer"
               role="group"
-              aria-label={`${skill.name} : ${skill.percentage}%`}
+              aria-label={`${skill.name} : niveau ${skill.level}`}
             >
               <div aria-hidden className="relative h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28 mb-4 flex items-center justify-center">
                 {/* Progress Circle — viewBox keeps it crisp at any container size */}
@@ -54,7 +64,7 @@ export default function SkillsGrid() {
                   />
                   <motion.circle
                     initial={{ strokeDashoffset: 301 }}
-                    whileInView={{ strokeDashoffset: 301 - (301 * skill.percentage) / 100 }}
+                    whileInView={{ strokeDashoffset: 301 - (301 * LEVEL_FILL[skill.level]) / 100 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5, delay: idx * 0.1 + 0.5, ease: "easeOut" }}
                     cx="56"

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portefolio-nine-iota.vercel.app/sitemap.xml

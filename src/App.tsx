@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { Analytics } from '@vercel/analytics/react';
 import Loader from './components/Loader';
 import Header from './components/Header';
 import InfoSection from './components/InfoSection';
@@ -14,10 +15,31 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
+    // Ties the loader to real page-load completion instead of a blind fixed
+    // delay: MIN_DISPLAY lets the boot animation finish even on a fast
+    // connection, while waiting for `load` avoids hiding the loader before
+    // images/assets are actually ready on a slow one. FALLBACK caps the
+    // wait so the loader can never hang indefinitely if `load` never fires.
+    const MIN_DISPLAY = 1700;
+    const FALLBACK = 5000;
+    const start = Date.now();
+
+    const finish = () => {
+      const remaining = Math.max(MIN_DISPLAY - (Date.now() - start), 0);
+      setTimeout(() => setLoading(false), remaining);
+    };
+
+    if (document.readyState === 'complete') {
+      finish();
+    } else {
+      window.addEventListener('load', finish);
+    }
+    const fallback = setTimeout(() => setLoading(false), FALLBACK);
+
+    return () => {
+      window.removeEventListener('load', finish);
+      clearTimeout(fallback);
+    };
   }, []);
 
   return (
@@ -38,8 +60,10 @@ export default function App() {
       <motion.div
         id="main-content"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+        // Tied to the real `loading` state now that Loader's duration is
+        // dynamic — a fixed delay would drift out of sync with it.
+        animate={{ opacity: loading ? 0 : 1 }}
+        transition={{ duration: 1 }}
         className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-12 sm:pt-12 sm:pb-20 md:pt-20"
       >
         <Header />
@@ -58,6 +82,8 @@ export default function App() {
 
         <Footer />
       </motion.div>
+
+      <Analytics />
     </div>
   );
 }
