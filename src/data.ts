@@ -1,4 +1,4 @@
-import { Skill, Experience, Education, Project } from './types';
+import { Skill, Experience, Education, Project, Certification, Value } from './types';
 
 export const PROFILE = {
   firstName: "Adéliyi 0. M.",
@@ -76,14 +76,15 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  { name: 'HTML', level: 'Confirmé', icon: 'Layout' },
-  { name: 'CSS', level: 'Confirmé', icon: 'Palette' },
-  { name: 'JavaScript', level: 'Intermédiaire', icon: 'Braces' },
-  { name: 'PHP', level: 'Confirmé', icon: 'Server' },
-  { name: 'Laravel', level: 'Intermédiaire', icon: 'Boxes' },
-  { name: 'React', level: 'Intermédiaire', icon: 'Atom' },
-  { name: 'Tailwind CSS', level: 'Débutant', icon: 'Wind' },
-  { name: 'Bootstrap', level: 'Débutant', icon: 'Layers' },
+  { name: 'HTML', level: 'Confirmé', category: 'Front-End', icon: 'Layout' },
+  { name: 'CSS', level: 'Confirmé', category: 'Front-End', icon: 'Palette' },
+  { name: 'JavaScript', level: 'Intermédiaire', category: 'Front-End', icon: 'Braces' },
+  { name: 'React', level: 'Intermédiaire', category: 'Front-End', icon: 'Atom' },
+  { name: 'Tailwind CSS', level: 'Débutant', category: 'Front-End', icon: 'Wind' },
+  { name: 'Bootstrap', level: 'Débutant', category: 'Front-End', icon: 'Layers' },
+  { name: 'PHP', level: 'Confirmé', category: 'Back-End', icon: 'Server' },
+  { name: 'Laravel', level: 'Intermédiaire', category: 'Back-End', icon: 'Boxes' },
+  { name: 'MySQL', level: 'Intermédiaire', category: 'Back-End', icon: 'Database' },
 ];
 
 export const EXPERIENCES: Experience[] = [
@@ -92,12 +93,6 @@ export const EXPERIENCES: Experience[] = [
     role: "Développeur web freelance",
     company: "Projets personnels",
     description: "Sites vitrines pour des particuliers.",
-  },
-  {
-    period: "2025",
-    role: "Certification développement web",
-    company: "HTML / CSS / JavaScript / PHP",
-    description: "",
   }
 ];
 
@@ -110,4 +105,43 @@ export const EDUCATIONS: Education[] = [
     period: '2025',
     degree: 'Formation développement web (HTML / CSS / JavaScript / PHP)',
   }
+];
+
+export const CERTIFICATIONS: Certification[] = [
+  {
+    name: 'Développement Web',
+    skills: ['PHP', 'MySQL', 'JavaScript'],
+    status: 'Obtenue',
+    period: '2025',
+  },
+  {
+    name: 'Laravel',
+    skills: ['Laravel', 'PHP'],
+    status: 'Obtenue',
+    period: '2026',
+  },
+  {
+    name: 'React & JavaScript',
+    skills: ['React', 'JavaScript'],
+    status: 'En cours',
+    period: '2026',
+  },
+];
+
+export const VALUES: Value[] = [
+  {
+    title: 'Qualité du code',
+    description: "Je m'efforce d'écrire un code propre, lisible et maintenable, en suivant les bonnes pratiques du développement web.",
+    icon: 'Sparkles',
+  },
+  {
+    title: 'Apprentissage continu',
+    description: "Le développement web évolue vite — je reste curieux et je monte régulièrement en compétences sur de nouvelles technos.",
+    icon: 'GraduationCap',
+  },
+  {
+    title: 'Fiabilité',
+    description: "Je tiens mes engagements et je communique clairement sur l'avancement de chaque projet, du cahier des charges à la livraison.",
+    icon: 'ShieldCheck',
+  },
 ];

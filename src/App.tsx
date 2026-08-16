@@ -8,6 +8,8 @@ import InfoSection from './components/InfoSection';
 import ContentGrid from './components/ContentGrid';
 import ProjectsGrid from './components/ProjectsGrid';
 import SkillsGrid from './components/SkillsGrid';
+import CertificationsGrid from './components/CertificationsGrid';
+import ValuesSection from './components/ValuesSection';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import { PROFILE } from './data';
@@ -76,6 +78,12 @@ export default function App() {
           <ContentGrid />
           <SkillsGrid />
         </div>
+
+        <div className="mt-10 sm:mt-16">
+          <CertificationsGrid />
+        </div>
+
+        <ValuesSection />
 
         <div className="mt-10 sm:mt-16">
           <ProjectsGrid />

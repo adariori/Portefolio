@@ -5,6 +5,7 @@ import { MessageSquare } from 'lucide-react';
 const NAV_LINKS = [
   { href: '#about', label: 'À propos' },
   { href: '#competences', label: 'Compétences' },
+  { href: '#certifications', label: 'Certifications' },
   { href: '#projets', label: 'Projets' },
 ];
 
