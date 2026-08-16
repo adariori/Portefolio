@@ -89,7 +89,7 @@ export default function ProjectsGrid() {
                   className="text-accent-light opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0"
                 />
               </h4>
-              <p className="text-white/30 text-sm mt-1 leading-relaxed">{proj.description}</p>
+              <p className="text-white/55 text-sm mt-1 leading-relaxed">{proj.description}</p>
               {proj.tags && proj.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   {proj.tags.map((tag) => (

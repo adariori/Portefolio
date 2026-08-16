@@ -31,7 +31,7 @@ export default function Footer() {
         </span>
       </motion.footer>
 
-      <p className="mt-4 text-center text-white/30 text-[11px] sm:text-xs">
+      <p className="mt-4 text-center text-white/50 text-[11px] sm:text-xs">
         © 2026 ARIORI OLOROUNKO Adéliyi Odjouola Moshood — Cotonou, Bénin ·{' '}
         <a
           href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr"
