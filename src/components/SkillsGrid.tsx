@@ -13,17 +13,28 @@ import {
   Wind,
   Layers,
   Database,
+  Webhook,
+  KeyRound,
+  GitBranch,
+  Github,
+  Terminal,
+  Container,
+  Workflow,
+  Cloud,
   type LucideIcon,
 } from 'lucide-react';
 
 // Named imports only — `import * as` would pull in the whole icon set
 // (1000+ icons) and defeat tree-shaking for a handful of icons actually
 // used. Add new skill icons here as SKILLS grows.
-const ICONS: Record<string, LucideIcon> = { Layout, Palette, Braces, Server, Boxes, Atom, Wind, Layers, Database };
+const ICONS: Record<string, LucideIcon> = {
+  Layout, Palette, Braces, Server, Boxes, Atom, Wind, Layers, Database,
+  Webhook, KeyRound, GitBranch, Github, Terminal, Container, Workflow, Cloud,
+};
 
 // Rendered in this fixed order regardless of how SKILLS is sorted, so the
 // grouping stays predictable (Front-End first) even if entries are reordered.
-const CATEGORIES: Skill['category'][] = ['Front-End', 'Back-End'];
+const CATEGORIES: Skill['category'][] = ['Front-End', 'Back-End', 'Outils'];
 
 // Maps the qualitative self-assessment to a fill amount for the progress
 // ring — capped below 100% even for "Confirmé" so the visual never reads

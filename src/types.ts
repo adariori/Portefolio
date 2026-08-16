@@ -2,7 +2,7 @@ export interface Skill {
   name: string;
   /** Qualitative self-assessment — avoids the false precision of a specific percentage. */
   level: 'Débutant' | 'Intermédiaire' | 'Confirmé';
-  category: 'Front-End' | 'Back-End';
+  category: 'Front-End' | 'Back-End' | 'Outils';
   icon?: string;
 }
 
@@ -10,7 +10,6 @@ export interface Certification {
   name: string;
   /** What the certification actually covers. */
   skills: string[];
-  status: 'Obtenue' | 'En cours';
   period: string;
 }
 

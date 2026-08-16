@@ -25,7 +25,7 @@ export default function CertificationsGrid() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="max-w-2xl text-white/60 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 ml-5"
       >
-        Les formations et certifications que j'ai suivies pour renforcer mes compétences, obtenues ou en cours.
+        Les formations et certifications que j'ai suivies pour renforcer mes compétences.
       </motion.p>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 ml-5">
@@ -38,19 +38,8 @@ export default function CertificationsGrid() {
             transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="rounded-xl border border-white/5 bg-white/[0.02] hover:border-accent-light/30 p-5 transition-colors"
           >
-            <div className="flex items-center justify-between gap-3 mb-2">
-              <h3 className="text-white/90 font-bold">{cert.name}</h3>
-              <span
-                className={`shrink-0 font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full ${
-                  cert.status === 'Obtenue'
-                    ? 'bg-emerald-400/10 text-emerald-400'
-                    : 'bg-accent/10 text-accent-light'
-                }`}
-              >
-                {cert.status}
-              </span>
-            </div>
-            <p className="text-white/30 text-xs font-mono uppercase tracking-widest mb-3">{cert.period}</p>
+            <h3 className="text-white/90 font-bold mb-2">{cert.name}</h3>
+            <p className="text-white/50 text-xs font-mono uppercase tracking-widest mb-3">{cert.period}</p>
             <div className="flex flex-wrap gap-1.5">
               {cert.skills.map((skill) => (
                 <span

@@ -3,7 +3,7 @@ import { Skill, Experience, Education, Project, Certification, Value, Service } 
 export const PROFILE = {
   firstName: "Adéliyi 0. M.",
   lastName: "ARIORI OLOROUNKO",
-  title: "Développeur Fullstack",
+  title: "Développeur Web · Étudiant en Architecture Logicielle · Aspirant Ingénieur IA",
   about: "Développeur fullstack. Je construis des applications avec React et Laravel, avec des bases solides en PHP, MySQL, Tailwind et Bootstrap. J'apprends chaque jour un peu plus.",
   contact: {
     phone: "+229 01 61 87 32 98",
@@ -85,6 +85,14 @@ export const SKILLS: Skill[] = [
   { name: 'PHP', level: 'Confirmé', category: 'Back-End', icon: 'Server' },
   { name: 'Laravel', level: 'Intermédiaire', category: 'Back-End', icon: 'Boxes' },
   { name: 'MySQL', level: 'Intermédiaire', category: 'Back-End', icon: 'Database' },
+  { name: 'API REST', level: 'Intermédiaire', category: 'Back-End', icon: 'Webhook' },
+  { name: 'Authentification', level: 'Intermédiaire', category: 'Back-End', icon: 'KeyRound' },
+  { name: 'Git', level: 'Confirmé', category: 'Outils', icon: 'GitBranch' },
+  { name: 'GitHub', level: 'Confirmé', category: 'Outils', icon: 'Github' },
+  { name: 'Linux', level: 'Confirmé', category: 'Outils', icon: 'Terminal' },
+  { name: 'Docker', level: 'Débutant', category: 'Outils', icon: 'Container' },
+  { name: 'CI/CD', level: 'Débutant', category: 'Outils', icon: 'Workflow' },
+  { name: 'AWS', level: 'Débutant', category: 'Outils', icon: 'Cloud' },
 ];
 
 export const EXPERIENCES: Experience[] = [
@@ -111,19 +119,16 @@ export const CERTIFICATIONS: Certification[] = [
   {
     name: 'Développement Web',
     skills: ['PHP', 'MySQL', 'JavaScript'],
-    status: 'Obtenue',
     period: '2025',
   },
   {
     name: 'Laravel',
     skills: ['Laravel', 'PHP'],
-    status: 'Obtenue',
     period: '2026',
   },
   {
     name: 'React & JavaScript',
     skills: ['React', 'JavaScript'],
-    status: 'En cours',
     period: '2026',
   },
 ];
