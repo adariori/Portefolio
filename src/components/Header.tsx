@@ -151,7 +151,7 @@ export default function Header() {
             className="h-full w-full select-none"
           >
             <img
-              src="/profil.jpeg"
+              src="/profil.webp"
               alt={`Photo de profil de ${PROFILE.firstName} ${PROFILE.lastName}`}
               className="h-full w-full object-cover"
             />
