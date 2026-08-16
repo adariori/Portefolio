@@ -20,6 +20,12 @@ export interface Value {
   icon: string;
 }
 
+export interface Service {
+  title: string;
+  description: string;
+  icon: string;
+}
+
 export interface Experience {
   period: string;
   role: string;

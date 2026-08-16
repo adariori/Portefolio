@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Analytics } from '@vercel/analytics/react';
 import Loader from './components/Loader';
 import StickyNav from './components/StickyNav';
+import BackToTop from './components/BackToTop';
 import Header from './components/Header';
 import InfoSection from './components/InfoSection';
 import ContentGrid from './components/ContentGrid';
@@ -10,6 +11,7 @@ import ProjectsGrid from './components/ProjectsGrid';
 import SkillsGrid from './components/SkillsGrid';
 import CertificationsGrid from './components/CertificationsGrid';
 import ValuesSection from './components/ValuesSection';
+import ServicesSection from './components/ServicesSection';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import { PROFILE } from './data';
@@ -61,6 +63,7 @@ export default function App() {
       </AnimatePresence>
 
       {!loading && <StickyNav />}
+      {!loading && <BackToTop />}
 
       <motion.div
         id="main-content"
@@ -84,6 +87,8 @@ export default function App() {
         </div>
 
         <ValuesSection />
+
+        <ServicesSection />
 
         <div className="mt-10 sm:mt-16">
           <ProjectsGrid />

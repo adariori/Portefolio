@@ -18,6 +18,16 @@ export default function CertificationsGrid() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Certifications</h2>
       </motion.div>
 
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-2xl text-white/60 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 ml-5"
+      >
+        Les formations et certifications que j'ai suivies pour renforcer mes compétences, obtenues ou en cours.
+      </motion.p>
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 ml-5">
         {CERTIFICATIONS.map((cert, idx) => (
           <motion.div

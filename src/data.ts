@@ -1,4 +1,4 @@
-import { Skill, Experience, Education, Project, Certification, Value } from './types';
+import { Skill, Experience, Education, Project, Certification, Value, Service } from './types';
 
 export const PROFILE = {
   firstName: "Adéliyi 0. M.",
@@ -143,5 +143,23 @@ export const VALUES: Value[] = [
     title: 'Fiabilité',
     description: "Je tiens mes engagements et je communique clairement sur l'avancement de chaque projet, du cahier des charges à la livraison.",
     icon: 'ShieldCheck',
+  },
+];
+
+export const SERVICES: Service[] = [
+  {
+    title: 'Sites vitrines',
+    description: "Création de sites vitrines modernes et responsives avec Laravel ou React, pour présenter une activité ou un projet en ligne.",
+    icon: 'Globe',
+  },
+  {
+    title: 'Applications web full-stack',
+    description: "Développement d'applications complètes avec back-office admin, base de données MySQL et gestion CRUD, en PHP/Laravel.",
+    icon: 'LayoutGrid',
+  },
+  {
+    title: 'Intégration front-end',
+    description: "Intégration d'interfaces React et Tailwind CSS fidèles aux maquettes, propres, responsives et performantes.",
+    icon: 'Atom',
   },
 ];
