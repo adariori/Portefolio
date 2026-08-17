@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import emailjs from '@emailjs/browser';
 import { Send, MessageSquare, CheckCircle2, AlertCircle } from 'lucide-react';
 import { PROFILE } from '../data';
+import { useLanguage } from '../i18n';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
@@ -11,6 +12,7 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | u
 type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error';
 
 export default function ContactForm() {
+  const { t } = useLanguage();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -61,7 +63,7 @@ export default function ContactForm() {
         <div aria-hidden className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
           <MessageSquare size={20} />
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Contact</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">{t.sections.contact}</h2>
       </motion.div>
 
       <motion.div
@@ -73,11 +75,11 @@ export default function ContactForm() {
       >
         <p className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-accent mb-3">
           <span className={`h-2 w-2 rounded-full ${PROFILE.available ? 'bg-emerald-400 animate-pulse' : 'bg-white/30'}`} />
-          {PROFILE.available ? 'Disponible pour de nouveaux projets' : 'Actuellement indisponible'}
+          {PROFILE.available ? t.contactForm.available : t.contactForm.unavailable}
         </p>
-        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">Travaillons ensemble</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">{t.contactForm.heading}</h3>
         <p className="text-white/60 text-sm sm:text-base leading-relaxed">
-          Un projet web, un stage ou une collaboration ? Discutons-en — laissez-moi un message ou écrivez-moi directement.
+          {t.contactForm.intro}
         </p>
       </motion.div>
 
@@ -91,39 +93,39 @@ export default function ContactForm() {
       >
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
-            <label htmlFor="contact-name" className={labelClass}>Nom</label>
+            <label htmlFor="contact-name" className={labelClass}>{t.contactForm.nameLabel}</label>
             <input
               id="contact-name"
               type="text"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Votre nom"
+              placeholder={t.contactForm.namePlaceholder}
               className={inputClass}
             />
           </div>
           <div>
-            <label htmlFor="contact-email" className={labelClass}>Email</label>
+            <label htmlFor="contact-email" className={labelClass}>{t.contactForm.emailLabel}</label>
             <input
               id="contact-email"
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="votre@email.com"
+              placeholder={t.contactForm.emailPlaceholder}
               className={inputClass}
             />
           </div>
         </div>
         <div>
-          <label htmlFor="contact-message" className={labelClass}>Message</label>
+          <label htmlFor="contact-message" className={labelClass}>{t.contactForm.messageLabel}</label>
           <textarea
             id="contact-message"
             required
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Votre message..."
+            placeholder={t.contactForm.messagePlaceholder}
             className={`${inputClass} resize-none`}
           />
         </div>
@@ -138,7 +140,7 @@ export default function ContactForm() {
             className="flex items-center gap-2 bg-accent hover:bg-accent-light disabled:opacity-60 disabled:pointer-events-none text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3 rounded-lg transition-colors"
           >
             <Send aria-hidden size={16} />
-            {status === 'sending' ? 'Envoi...' : 'Envoyer'}
+            {status === 'sending' ? t.contactForm.sending : t.contactForm.send}
           </motion.button>
 
           <AnimatePresence mode="wait">
@@ -151,7 +153,7 @@ export default function ContactForm() {
                 className="flex items-center gap-1.5 text-emerald-400 text-xs sm:text-sm"
               >
                 <CheckCircle2 aria-hidden size={16} />
-                Message envoyé, merci !
+                {t.contactForm.sent}
               </motion.p>
             )}
             {status === 'error' && (
@@ -163,7 +165,7 @@ export default function ContactForm() {
                 className="flex items-center gap-1.5 text-red-400 text-xs sm:text-sm"
               >
                 <AlertCircle aria-hidden size={16} />
-                Échec de l'envoi, réessayez ou écrivez à {PROFILE.contact.email}
+                {t.contactForm.error(PROFILE.contact.email)}
               </motion.p>
             )}
           </AnimatePresence>

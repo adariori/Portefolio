@@ -15,9 +15,11 @@ import ServicesSection from './components/ServicesSection';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import { PROFILE } from './data';
+import { useLanguage } from './i18n';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Ties the loader to real page-load completion instead of a blind fixed
@@ -55,7 +57,7 @@ export default function App() {
         href="#main-content"
         className="fixed left-4 top-4 z-[100] -translate-y-24 focus:translate-y-0 bg-accent text-white text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-lg transition-transform"
       >
-        Aller au contenu principal
+        {t.skipLink}
       </a>
 
       <AnimatePresence mode="wait">

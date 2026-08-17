@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useLanguage } from '../i18n';
 
 // Fake boot log lines — reuses the "bash window" motif already established
 // in InfoSection (cat about.txt) instead of introducing a second, unrelated
@@ -13,6 +14,7 @@ const BOOT_LINES = [
 ];
 
 export default function Loader({ name }: { name: string }) {
+  const { t } = useLanguage();
   const lineDelay = (i: number) => 0.15 + i * 0.18;
   const nameDelay = lineDelay(BOOT_LINES.length - 1) + 0.25;
   const barDelay = 0.15;
@@ -25,7 +27,7 @@ export default function Loader({ name }: { name: string }) {
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-bg-dark text-white overflow-hidden px-4"
       role="status"
-      aria-label={`Chargement du portfolio de ${name}`}
+      aria-label={t.loaderAria(name)}
     >
       {/* CRT scanline sweep — ambient texture, kept subtle in the background */}
       <motion.div

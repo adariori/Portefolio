@@ -1,10 +1,13 @@
 import { motion } from 'motion/react';
 import { SERVICES } from '../data';
+import { useLanguage } from '../i18n';
 import { Globe, LayoutGrid, Atom, Briefcase, type LucideIcon } from 'lucide-react';
 
 const ICONS: Record<string, LucideIcon> = { Globe, LayoutGrid, Atom };
 
 export default function ServicesSection() {
+  const { lang, t } = useLanguage();
+
   return (
     <section id="services" className="mt-10 sm:mt-16 scroll-mt-24">
       <motion.div
@@ -17,7 +20,7 @@ export default function ServicesSection() {
         <div aria-hidden className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
           <Briefcase size={20} />
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Services</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">{t.sections.services}</h2>
       </motion.div>
 
       <motion.p
@@ -27,7 +30,7 @@ export default function ServicesSection() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="max-w-2xl text-white/60 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8"
       >
-        Ce que je peux construire pour votre prochain projet web.
+        {t.servicesIntro}
       </motion.p>
 
       <div className="grid sm:grid-cols-3 gap-4 sm:gap-5">
@@ -35,7 +38,7 @@ export default function ServicesSection() {
           const Icon = ICONS[service.icon] || Globe;
           return (
             <motion.div
-              key={service.title}
+              key={service.title.en}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -45,8 +48,8 @@ export default function ServicesSection() {
               <div aria-hidden className="h-9 w-9 rounded-lg bg-accent/20 flex items-center justify-center text-accent mb-4">
                 <Icon size={18} />
               </div>
-              <h3 className="text-white/90 font-bold mb-1.5">{service.title}</h3>
-              <p className="text-white/55 text-sm leading-relaxed">{service.description}</p>
+              <h3 className="text-white/90 font-bold mb-1.5">{service.title[lang]}</h3>
+              <p className="text-white/55 text-sm leading-relaxed">{service.description[lang]}</p>
             </motion.div>
           );
         })}

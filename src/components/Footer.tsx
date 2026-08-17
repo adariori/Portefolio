@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { PROFILE } from '../data';
+import { useLanguage } from '../i18n';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <>
       <motion.footer
@@ -15,7 +18,7 @@ export default function Footer() {
           href="#contact"
           className="font-outline tracking-wider text-white/80 min-w-0 break-words underline decoration-accent-light/40 underline-offset-4 hover:decoration-accent-light hover:text-white transition-colors"
         >
-          Discutons de votre prochain projet
+          {t.footer.cta}
         </a>
 
         {/* Status pill — driven by PROFILE.available so it reflects real status
@@ -27,7 +30,7 @@ export default function Footer() {
             transition={{ duration: 1.8, repeat: PROFILE.available ? Infinity : 0, ease: 'easeInOut' }}
             className={`h-1.5 w-1.5 rounded-full ${PROFILE.available ? 'bg-green-400' : 'bg-red-500'}`}
           />
-          {PROFILE.available ? 'Disponible' : 'Indisponible'}
+          {PROFILE.available ? t.footer.available : t.footer.unavailable}
         </span>
       </motion.footer>
 

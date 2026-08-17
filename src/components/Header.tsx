@@ -1,7 +1,8 @@
 import { useRef, type MouseEvent } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
-import { Github, Linkedin, Download } from 'lucide-react';
+import { Github, Linkedin, Download, Languages } from 'lucide-react';
 import { PROFILE } from '../data';
+import { useLanguage } from '../i18n';
 import MagneticLink from './MagneticLink';
 
 // Explicit escape (not a literal space typed in source) so there is no
@@ -52,6 +53,7 @@ function KineticWord({ text, delayOffset = 0, className = '' }: { text: string; 
 
 export default function Header() {
   const cardRef = useRef<HTMLDivElement>(null);
+  const { lang, toggleLang, t } = useLanguage();
 
   // Magnetic tilt: photo reacts to cursor position like it's floating on a hinge.
   const rotateX = useMotionValue(0);
@@ -83,8 +85,8 @@ export default function Header() {
           {/* Fluid clamp instead of a fixed 10rem jump at lg: — scales with the
               viewport but caps out so it stays proportional on large/fullscreen screens. */}
           <h1 className="text-[clamp(2.5rem,6vw,6.5rem)] font-black tracking-tight uppercase leading-[0.85] md:leading-[0.75] mb-2 flex flex-col md:flex-row gap-2 md:gap-4 items-center md:items-start justify-center md:justify-start">
-            <KineticWord text={PROFILE.firstName} delayOffset={0.1} className="font-outline text-white" />
-            <KineticWord text={PROFILE.lastName} delayOffset={0.1 + PROFILE.firstName.length * 0.035} className="font-outline text-accent-light" />
+            <KineticWord text={PROFILE.firstName} delayOffset={0.1} className="font-display text-white" />
+            <KineticWord text={PROFILE.lastName} delayOffset={0.1 + PROFILE.firstName.length * 0.035} className="font-display text-accent-light" />
           </h1>
         </div>
         <motion.p
@@ -93,7 +95,7 @@ export default function Header() {
           transition={{ delay: 0.9, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           className="text-accent-light font-black text-xl sm:text-2xl md:text-3xl tracking-wide mt-4 uppercase"
         >
-          {PROFILE.title}
+          {PROFILE.title[lang]}
         </motion.p>
 
         <motion.div
@@ -105,7 +107,7 @@ export default function Header() {
           <MagneticLink
             href={`https://github.com/${PROFILE.contact.github}`}
             target="_blank"
-            ariaLabel={`Profil GitHub de ${PROFILE.firstName}`}
+            ariaLabel={t.contactAria.githubProfile(PROFILE.firstName)}
             className="h-10 w-10 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-accent-light hover:border-accent-light/40 transition-colors"
           >
             <Github aria-hidden size={18} />
@@ -113,7 +115,7 @@ export default function Header() {
           <MagneticLink
             href={`https://linkedin.com/in/${PROFILE.contact.linkedin}`}
             target="_blank"
-            ariaLabel={`Profil LinkedIn de ${PROFILE.firstName}`}
+            ariaLabel={t.contactAria.linkedinProfile(PROFILE.firstName)}
             className="h-10 w-10 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-accent-light hover:border-accent-light/40 transition-colors"
           >
             <Linkedin aria-hidden size={18} />
@@ -121,12 +123,21 @@ export default function Header() {
           <MagneticLink
             href={PROFILE.cvUrl}
             download
-            ariaLabel="Télécharger le CV au format PDF"
+            ariaLabel={t.contactAria.downloadCv}
             className="h-10 pl-3 pr-4 flex items-center gap-2 rounded-lg bg-accent text-white text-xs font-bold uppercase tracking-wider hover:bg-accent-light transition-colors"
           >
             <Download aria-hidden size={16} />
             CV
           </MagneticLink>
+          <button
+            type="button"
+            onClick={toggleLang}
+            aria-label={t.langToggleAria}
+            className="h-10 px-3 flex items-center gap-1.5 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-accent-light hover:border-accent-light/40 transition-colors text-xs font-bold uppercase tracking-wider"
+          >
+            <Languages aria-hidden size={16} />
+            {lang === 'fr' ? 'EN' : 'FR'}
+          </button>
         </motion.div>
       </div>
 
@@ -152,7 +163,7 @@ export default function Header() {
           >
             <img
               src="/profil.webp"
-              alt={`Photo de profil de ${PROFILE.firstName} ${PROFILE.lastName}`}
+              alt={t.contactAria.profilePhoto(`${PROFILE.firstName} ${PROFILE.lastName}`)}
               className="h-full w-full object-cover"
             />
           </motion.div>

@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Phone, Mail, Github, Linkedin } from 'lucide-react';
 import { PROFILE } from '../data';
+import { useLanguage } from '../i18n';
 import MagneticLink from './MagneticLink';
 
 // mailto: silently fails when the visitor's browser/OS has no default mail
@@ -10,7 +11,8 @@ const gmailComposeUrl = (email: string) =>
   `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
 
 export default function InfoSection() {
-  const about = PROFILE.about;
+  const { lang, t } = useLanguage();
+  const about = PROFILE.about[lang];
 
   return (
     <section id="about" className="space-y-12 mb-16 scroll-mt-24">
@@ -34,6 +36,7 @@ export default function InfoSection() {
           {/* Typewriter reveal: text uncovers left-to-right, terminal-style */}
           <p className="text-white/80 leading-relaxed max-w-3xl">
             <motion.span
+              key={lang}
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={{ clipPath: 'inset(0 0% 0 0)' }}
               transition={{ duration: Math.min(about.length * 0.018, 2.5), delay: 1.2, ease: 'linear' }}
@@ -65,7 +68,7 @@ export default function InfoSection() {
       <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 px-2">
         <MagneticLink
           href={`tel:${PROFILE.contact.phone}`}
-          ariaLabel="Appeler par téléphone"
+          ariaLabel={t.contactAria.call}
           className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors"
         >
           <Phone aria-hidden size={16} className="text-accent" />
@@ -74,7 +77,7 @@ export default function InfoSection() {
         <MagneticLink
           href={gmailComposeUrl(PROFILE.contact.email)}
           target="_blank"
-          ariaLabel="Envoyer un email via Gmail"
+          ariaLabel={t.contactAria.email}
           className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors"
         >
           <Mail aria-hidden size={16} className="text-accent shrink-0" />
@@ -83,7 +86,7 @@ export default function InfoSection() {
         <MagneticLink
           href={`https://github.com/${PROFILE.contact.github}`}
           target="_blank"
-          ariaLabel={`Profil GitHub de ${PROFILE.firstName}`}
+          ariaLabel={t.contactAria.githubProfile(PROFILE.firstName)}
           className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors"
         >
           <Github aria-hidden size={16} className="text-accent" />
@@ -92,7 +95,7 @@ export default function InfoSection() {
         <MagneticLink
           href={`https://linkedin.com/in/${PROFILE.contact.linkedin}`}
           target="_blank"
-          ariaLabel={`Profil LinkedIn de ${PROFILE.firstName}`}
+          ariaLabel={t.contactAria.linkedinProfile(PROFILE.firstName)}
           className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors"
         >
           <Linkedin aria-hidden size={16} className="text-accent" />

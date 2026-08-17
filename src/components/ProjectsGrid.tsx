@@ -1,8 +1,11 @@
 import { motion } from 'motion/react';
 import { PROJECTS } from '../data';
+import { useLanguage } from '../i18n';
 import { Folder, FolderGit2, ArrowUpRight, Github } from 'lucide-react';
 
 export default function ProjectsGrid() {
+  const { lang, t } = useLanguage();
+
   return (
     <section id="projets" className="scroll-mt-24">
       <motion.div
@@ -15,7 +18,7 @@ export default function ProjectsGrid() {
         <div aria-hidden className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center text-accent">
           <Folder size={20} />
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">Projets</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-accent-light/20 font-outline">{t.sections.projects}</h2>
       </motion.div>
 
       <motion.p
@@ -25,7 +28,7 @@ export default function ProjectsGrid() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="max-w-2xl text-white/60 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8"
       >
-        Une sélection de projets réalisés en freelance, en formation ou pour mon propre apprentissage — du site vitrine à l'application full-stack.
+        {t.projectsIntro}
       </motion.p>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 ml-5">
@@ -47,7 +50,7 @@ export default function ProjectsGrid() {
               href={primaryUrl}
               target={primaryUrl ? '_blank' : undefined}
               rel={primaryUrl ? 'noopener noreferrer' : undefined}
-              aria-label={`Voir le projet ${proj.name}`}
+              aria-label={t.projectAria.view(proj.name)}
               className="absolute inset-0 z-0"
             />
 
@@ -56,7 +59,7 @@ export default function ProjectsGrid() {
                 href={proj.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Voir le code source de ${proj.name} sur GitHub`}
+                aria-label={t.projectAria.viewCode(proj.name)}
                 className="absolute top-3 right-3 z-10 h-8 w-8 rounded-lg bg-bg-dark/80 backdrop-blur flex items-center justify-center text-white/60 hover:text-white hover:bg-bg-dark transition-colors"
               >
                 <Github size={16} />
@@ -89,7 +92,7 @@ export default function ProjectsGrid() {
                   className="text-accent-light opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0"
                 />
               </h4>
-              <p className="text-white/55 text-sm mt-1 leading-relaxed">{proj.description}</p>
+              <p className="text-white/55 text-sm mt-1 leading-relaxed">{proj.description[lang]}</p>
               {proj.tags && proj.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   {proj.tags.map((tag) => (
