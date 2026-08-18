@@ -37,6 +37,7 @@ const UI = {
       backend: 'Back-End',
       tools: 'Outils',
       languages: 'Langages',
+      notions: 'Notions académiques',
     },
     skillLevels: {
       beginner: 'Débutant',
@@ -113,6 +114,7 @@ const UI = {
       backend: 'Back-End',
       tools: 'Tools',
       languages: 'Languages',
+      notions: 'Academic Coursework',
     },
     skillLevels: {
       beginner: 'Beginner',

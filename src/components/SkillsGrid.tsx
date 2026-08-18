@@ -20,7 +20,6 @@ import {
   Github,
   Terminal,
   Container,
-  Bot,
   FileCode2,
   Coffee,
   Cpu,
@@ -33,12 +32,12 @@ import {
 const ICONS: Record<string, LucideIcon> = {
   Layout, Palette, Braces, Server, Boxes, Atom, Wind, Layers, Database,
   Webhook, KeyRound, GitBranch, Github, Terminal, Container, Code,
-  Bot, FileCode2, Coffee, Cpu,
+  FileCode2, Coffee, Cpu,
 };
 
 // Rendered in this fixed order regardless of how SKILLS is sorted, so the
 // grouping stays predictable (Front-End first) even if entries are reordered.
-const CATEGORIES: Skill['category'][] = ['frontend', 'backend', 'tools', 'languages'];
+const CATEGORIES: Skill['category'][] = ['frontend', 'backend', 'tools', 'languages', 'notions'];
 
 // How many of the 3 level-dots light up — compact stand-in for the old
 // circular progress ring, still capped short of "full" even at "advanced"

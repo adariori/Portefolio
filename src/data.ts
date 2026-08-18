@@ -8,8 +8,8 @@ export const PROFILE = {
     en: "Software Architecture Student · Full-Stack Web Developer",
   },
   about: {
-    fr: "Développeur fullstack basé à Cotonou, Bénin.\nJe conçois des applications web complètes — front React, back Laravel/PHP, base MySQL.\n\nProjets réalisés : sites vitrines, back-offices, menus numériques, apps de gestion — tous déployés et documentés sur GitHub.\n\nÉtudiant en Architecture Logicielle à ESGIS, avec l'ambition de me spécialiser en ingénierie LLM/IA — disponible pour un stage ou une collaboration.",
-    en: "Full-stack developer based in Cotonou, Benin.\nI build complete web applications — React front-end, Laravel/PHP back-end, MySQL database.\n\nProjects delivered: showcase sites, admin back-offices, digital menus, management apps — all deployed and documented on GitHub.\n\nSoftware Architecture student at ESGIS, aiming to specialize in LLM/AI engineering — available for an internship or collaboration.",
+    fr: "Développeur fullstack basé à Cotonou, Bénin.\nJe conçois des applications web complètes — front React, back Laravel/PHP, base MySQL.\n\nProjets réalisés : sites vitrines, back-offices, menus numériques, apps de gestion — tous déployés et documentés sur GitHub.\n\nÉtudiant en Architecture Logicielle à ESGIS — disponible pour un stage ou une collaboration.",
+    en: "Full-stack developer based in Cotonou, Benin.\nI build complete web applications — React front-end, Laravel/PHP back-end, MySQL database.\n\nProjects delivered: showcase sites, admin back-offices, digital menus, management apps — all deployed and documented on GitHub.\n\nSoftware Architecture student at ESGIS — available for an internship or collaboration.",
   },
   contact: {
     phone: "+229 01 61 87 32 98",
@@ -130,15 +130,13 @@ export const SKILLS: Skill[] = [
   { name: skillName('Linux', 'Linux'), level: 'advanced', category: 'tools', icon: 'Terminal' },
   { name: skillName('Docker', 'Docker'), level: 'beginner', category: 'tools', icon: 'Container' },
   { name: skillName('VS Code', 'VS Code'), level: 'advanced', category: 'tools', icon: 'Code' },
-  { name: skillName('Claude Code', 'Claude Code'), level: 'advanced', category: 'tools', icon: 'Bot' },
-  // Self-assessed, no shipped project behind them yet — kept at "beginner"
-  // rather than omitted, since that's an honest reflection of "je connais
-  // ces langages" without overclaiming practical experience.
-  { name: skillName('Python', 'Python'), level: 'beginner', category: 'languages', icon: 'FileCode2' },
-  { name: skillName('Java', 'Java'), level: 'beginner', category: 'languages', icon: 'Coffee' },
-  { name: skillName('C / C++', 'C / C++'), level: 'beginner', category: 'languages', icon: 'Cpu' },
   { name: skillName('Shell', 'Shell'), level: 'intermediate', category: 'languages', icon: 'Terminal' },
   { name: skillName('SQL', 'SQL'), level: 'intermediate', category: 'languages', icon: 'Database' },
+  // Coursework only, no shipped project — kept in a clearly separate,
+  // lower-confidence bucket rather than mixed in with practiced languages.
+  { name: skillName('Python', 'Python'), level: 'beginner', category: 'notions', icon: 'FileCode2' },
+  { name: skillName('Java', 'Java'), level: 'beginner', category: 'notions', icon: 'Coffee' },
+  { name: skillName('C / C++', 'C / C++'), level: 'beginner', category: 'notions', icon: 'Cpu' },
 ];
 
 export const EXPERIENCES: Experience[] = [
@@ -146,7 +144,7 @@ export const EXPERIENCES: Experience[] = [
     period: { fr: "2024 - Présent", en: "2024 - Present" },
     role: { fr: "Développeur web freelance", en: "Freelance Web Developer" },
     company: { fr: "Projets personnels", en: "Personal projects" },
-    description: { fr: "Sites vitrines pour des particuliers, avec suivi et mises à jour réguliers pour certains clients.", en: "Showcase websites for individual clients, including ongoing support and updates for some of them." },
+    description: { fr: "Conception et livraison de sites vitrines et applications web (React, Laravel, PHP/MySQL) — Le Carré Bar & Lounge, Fighting Spirit Karate Club, et autres.", en: "Design and delivery of showcase websites and web applications (React, Laravel, PHP/MySQL) — Le Carré Bar & Lounge, Fighting Spirit Karate Club, and others." },
   }
 ];
 
@@ -180,11 +178,6 @@ export const CERTIFICATIONS: Certification[] = [
     skills: ['Laravel', 'PHP'],
     period: '2026',
     issuer: 'Centre de Formation King Soft Digital',
-  },
-  {
-    name: { fr: 'React & JavaScript', en: 'React & JavaScript' },
-    skills: ['React', 'JavaScript'],
-    period: '2026',
   },
 ];
 

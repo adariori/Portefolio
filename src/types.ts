@@ -8,7 +8,7 @@ export interface Skill {
   name: I18nText;
   /** Internal keys — display labels are translated via the i18n UI dictionary. */
   level: 'beginner' | 'intermediate' | 'advanced';
-  category: 'frontend' | 'backend' | 'tools' | 'languages';
+  category: 'frontend' | 'backend' | 'tools' | 'languages' | 'notions';
   icon?: string;
 }
 
