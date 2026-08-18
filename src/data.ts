@@ -42,6 +42,7 @@ export const PROJECTS: Project[] = [
       fr: "Ce portfolio lui-même : un site bilingue FR/EN avec un système de traduction fait maison, des animations Framer Motion élaborées, et une attention particulière portée à l'accessibilité (contraste, navigation clavier) et au référencement (SEO, données structurées).",
       en: "This very portfolio: a bilingual FR/EN site with a hand-built translation system, elaborate Framer Motion animations, and close attention to accessibility (contrast, keyboard navigation) and SEO (structured data).",
     },
+    image: "/portefolio.webp",
     tags: ["React", "TypeScript", "Tailwind CSS", "Motion", "Vite"],
     repoUrl: "https://github.com/adariori/Portefolio"
   },
