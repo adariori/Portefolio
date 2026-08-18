@@ -143,8 +143,8 @@ export default function Header() {
 
       <motion.div
         ref={cardRef}
-        initial={{ scale: 0, rotate: -45 }}
-        animate={{ scale: 1, rotate: 45 }}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 100, delay: 0.5 }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -153,20 +153,13 @@ export default function Header() {
       >
         <motion.div
           style={{ rotateX: springX, rotateY: springY }}
-          className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 bg-gradient-to-br from-accent to-bg-dark overflow-hidden shadow-[0_0_50px_rgba(37,99,235,0.4)] group-hover:shadow-[0_0_70px_rgba(37,99,235,0.6)] transition-shadow"
+          className="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 rounded-full bg-gradient-to-br from-accent to-bg-dark overflow-hidden shadow-[0_0_50px_rgba(37,99,235,0.4)] group-hover:shadow-[0_0_70px_rgba(37,99,235,0.6)] transition-shadow"
         >
-          {/* Photo de profil, contre-tournée pour rester droite dans le losange. */}
-          <motion.div
-            initial={{ rotate: -45, scale: 1.2 }}
-            animate={{ rotate: -45, scale: 1.2 }}
-            className="h-full w-full select-none"
-          >
-            <img
-              src="/profil.webp"
-              alt={t.contactAria.profilePhoto(`${PROFILE.firstName} ${PROFILE.lastName}`)}
-              className="h-full w-full object-cover"
-            />
-          </motion.div>
+          <img
+            src="/profil.webp"
+            alt={t.contactAria.profilePhoto(`${PROFILE.firstName} ${PROFILE.lastName}`)}
+            className="h-full w-full object-cover select-none"
+          />
           {/* Sheen that tracks the tilt — sells the "glass over metal" feel */}
           <motion.div
             aria-hidden
@@ -174,7 +167,7 @@ export default function Header() {
             className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           />
         </motion.div>
-        <div className="absolute inset-0 border-4 border-white/20 pointer-events-none" />
+        <div className="absolute inset-0 rounded-full border-4 border-white/20 pointer-events-none" />
       </motion.div>
     </header>
   );

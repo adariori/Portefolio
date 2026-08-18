@@ -8,8 +8,8 @@ export const PROFILE = {
     en: "Software Architecture Student · Full-Stack Web Developer",
   },
   about: {
-    fr: "Développeur fullstack. Je construis des applications avec React et Laravel, avec des bases solides en PHP, MySQL, Tailwind et Bootstrap. J'apprends chaque jour un peu plus.",
-    en: "Full-stack developer. I build applications with React and Laravel, with solid foundations in PHP, MySQL, Tailwind and Bootstrap. I learn a little more every day.",
+    fr: "Développeur fullstack basé à Cotonou, Bénin.\nJe conçois des applications web complètes — front React, back Laravel/PHP, base MySQL.\n\nProjets réalisés : sites vitrines, back-offices, menus numériques, apps de gestion — tous déployés et documentés sur GitHub.\n\nÉtudiant en Architecture Logicielle à ESGIS, avec l'ambition de me spécialiser en ingénierie LLM/IA — disponible pour un stage ou une collaboration.",
+    en: "Full-stack developer based in Cotonou, Benin.\nI build complete web applications — React front-end, Laravel/PHP back-end, MySQL database.\n\nProjects delivered: showcase sites, admin back-offices, digital menus, management apps — all deployed and documented on GitHub.\n\nSoftware Architecture student at ESGIS, aiming to specialize in LLM/AI engineering — available for an internship or collaboration.",
   },
   contact: {
     phone: "+229 01 61 87 32 98",
@@ -35,6 +35,15 @@ export const PROJECTS: Project[] = [
     tags: ["PHP", "MySQL", "PDO", "Tailwind CSS", "JavaScript"],
     demoUrl: "https://braise-marine-8ic7.vercel.app/frontend/includes/index.php",
     repoUrl: "https://github.com/adariori/braise_marine"
+  },
+  {
+    name: "Portfolio",
+    description: {
+      fr: "Ce portfolio lui-même : un site bilingue FR/EN avec un système de traduction fait maison, des animations Framer Motion élaborées, et une attention particulière portée à l'accessibilité (contraste, navigation clavier) et au référencement (SEO, données structurées).",
+      en: "This very portfolio: a bilingual FR/EN site with a hand-built translation system, elaborate Framer Motion animations, and close attention to accessibility (contrast, keyboard navigation) and SEO (structured data).",
+    },
+    tags: ["React", "TypeScript", "Tailwind CSS", "Motion", "Vite"],
+    repoUrl: "https://github.com/adariori/Portefolio"
   },
   {
     name: "Le Carré Bar & Lounge",
@@ -120,6 +129,16 @@ export const SKILLS: Skill[] = [
   { name: skillName('GitHub', 'GitHub'), level: 'advanced', category: 'tools', icon: 'Github' },
   { name: skillName('Linux', 'Linux'), level: 'advanced', category: 'tools', icon: 'Terminal' },
   { name: skillName('Docker', 'Docker'), level: 'beginner', category: 'tools', icon: 'Container' },
+  { name: skillName('VS Code', 'VS Code'), level: 'advanced', category: 'tools', icon: 'Code' },
+  { name: skillName('Claude Code', 'Claude Code'), level: 'advanced', category: 'tools', icon: 'Bot' },
+  // Self-assessed, no shipped project behind them yet — kept at "beginner"
+  // rather than omitted, since that's an honest reflection of "je connais
+  // ces langages" without overclaiming practical experience.
+  { name: skillName('Python', 'Python'), level: 'beginner', category: 'languages', icon: 'FileCode2' },
+  { name: skillName('Java', 'Java'), level: 'beginner', category: 'languages', icon: 'Coffee' },
+  { name: skillName('C / C++', 'C / C++'), level: 'beginner', category: 'languages', icon: 'Cpu' },
+  { name: skillName('Shell', 'Shell'), level: 'intermediate', category: 'languages', icon: 'Terminal' },
+  { name: skillName('SQL', 'SQL'), level: 'intermediate', category: 'languages', icon: 'Database' },
 ];
 
 export const EXPERIENCES: Experience[] = [

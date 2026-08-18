@@ -36,6 +36,7 @@ const UI = {
       frontend: 'Front-End',
       backend: 'Back-End',
       tools: 'Outils',
+      languages: 'Langages',
     },
     skillLevels: {
       beginner: 'Débutant',
@@ -62,7 +63,7 @@ const UI = {
       available: 'Disponible pour de nouveaux projets',
       unavailable: 'Actuellement indisponible',
       heading: 'Travaillons ensemble',
-      intro: 'Un projet web, un stage ou une collaboration ? Discutons-en — laissez-moi un message ou écrivez-moi directement.',
+      intro: 'Disponible pour un stage, une alternance ou une mission freelance. Je réponds sous 24h.',
       nameLabel: 'Nom',
       namePlaceholder: 'Votre nom',
       emailLabel: 'Email',
@@ -111,6 +112,7 @@ const UI = {
       frontend: 'Front-End',
       backend: 'Back-End',
       tools: 'Tools',
+      languages: 'Languages',
     },
     skillLevels: {
       beginner: 'Beginner',
@@ -137,7 +139,7 @@ const UI = {
       available: 'Available for new projects',
       unavailable: 'Currently unavailable',
       heading: "Let's work together",
-      intro: "A web project, internship or collaboration in mind? Let's talk — leave a message or write to me directly.",
+      intro: 'Available for an internship, work-study program or freelance work. I reply within 24h.',
       nameLabel: 'Name',
       namePlaceholder: 'Your name',
       emailLabel: 'Email',

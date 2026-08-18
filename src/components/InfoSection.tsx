@@ -34,7 +34,7 @@ export default function InfoSection() {
             <span className="text-accent/50">$</span> cat about.txt
           </p>
           {/* Typewriter reveal: text uncovers left-to-right, terminal-style */}
-          <p className="text-white/80 leading-relaxed max-w-3xl">
+          <p className="text-white/80 leading-relaxed max-w-3xl whitespace-pre-line">
             <motion.span
               key={lang}
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
