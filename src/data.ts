@@ -99,26 +99,6 @@ export const PROJECTS: Project[] = [
     tags: ["Laravel", "PHP", "Tailwind CSS", "Vite", "Pest"],
     demoUrl: "https://technop.onrender.com/accueil",
     repoUrl: "https://github.com/adariori/Technop"
-  },
-  {
-    name: "Sophie Mercier Coach",
-    description: {
-      fr: "Site vitrine pour une coach professionnelle, présentant son accompagnement et ses services.",
-      en: "Showcase website for a professional coach, presenting her coaching services.",
-    },
-    image: "/1.webp",
-    tags: ["React", "TypeScript", "Vite"],
-    demoUrl: "https://sophie-mercier-coach.vercel.app/"
-  },
-  {
-    name: "Marcus Reid Personal Trainer",
-    description: {
-      fr: "Site vitrine pour un coach sportif personnel, présentant ses programmes d'entraînement.",
-      en: "Showcase website for a personal trainer, presenting his training programs.",
-    },
-    image: "/2.webp",
-    tags: ["React", "TypeScript", "Vite"],
-    demoUrl: "https://marcus-reid-personal-trainer.vercel.app/"
   }
 ];
 
