@@ -8,8 +8,8 @@ export const PROFILE = {
     en: "Software Architecture Student · Full-Stack Web Developer",
   },
   about: {
-    fr: "Développeur fullstack basé à Cotonou, Bénin.\nJe conçois des applications web complètes — front React, back Laravel/PHP, base MySQL.\n\nProjets réalisés : sites vitrines, back-offices, menus numériques, apps de gestion — tous déployés et documentés sur GitHub.\n\nÉtudiant en Architecture Logicielle à ESGIS — disponible pour un stage ou une collaboration.",
-    en: "Full-stack developer based in Cotonou, Benin.\nI build complete web applications — React front-end, Laravel/PHP back-end, MySQL database.\n\nProjects delivered: showcase sites, admin back-offices, digital menus, management apps — all deployed and documented on GitHub.\n\nSoftware Architecture student at ESGIS — available for an internship or collaboration.",
+    fr: "Développeur fullstack basé à Cotonou, Bénin.\nJe conçois des applications web complètes — front React, back Laravel/PHP, bases MySQL et PostgreSQL, avec API REST, tests automatisés et déploiement continu.\n\nProjets réalisés : sites vitrines, back-offices, menus numériques, apps de gestion — tous documentés sur GitHub, la plupart en ligne.\n\nÉtudiant en Architecture Logicielle à ESGIS — disponible pour un stage ou une collaboration.",
+    en: "Full-stack developer based in Cotonou, Benin.\nI build complete web applications — React front-end, Laravel/PHP back-end, MySQL and PostgreSQL databases, with REST APIs, automated tests and continuous deployment.\n\nProjects delivered: showcase sites, admin back-offices, digital menus, management apps — all documented on GitHub, most of them live.\n\nSoftware Architecture student at ESGIS — available for an internship or collaboration.",
   },
   contact: {
     phone: "+229 01 61 87 32 98",
@@ -86,7 +86,6 @@ export const PROJECTS: Project[] = [
     },
     image: "/devblog.webp",
     tags: ["Laravel", "PHP", "Docker", "GitHub Actions", "Pest"],
-    demoUrl: "https://devblog-fob3.onrender.com",
     repoUrl: "https://github.com/adariori/DevBlog"
   },
   {
@@ -125,12 +124,16 @@ export const SKILLS: Skill[] = [
   { name: skillName('PHP', 'PHP'), level: 'advanced', category: 'backend', icon: 'Server' },
   { name: skillName('Laravel', 'Laravel'), level: 'intermediate', category: 'backend', icon: 'Boxes' },
   { name: skillName('MySQL', 'MySQL'), level: 'intermediate', category: 'backend', icon: 'Database' },
+  { name: skillName('PostgreSQL', 'PostgreSQL'), level: 'beginner', category: 'backend', icon: 'Database' },
   { name: skillName('API REST', 'REST API'), level: 'intermediate', category: 'backend', icon: 'Webhook' },
-  { name: skillName('Authentification', 'Authentication'), level: 'intermediate', category: 'backend', icon: 'KeyRound' },
+  { name: skillName('Authentification & autorisations', 'Authentication & authorization'), level: 'intermediate', category: 'backend', icon: 'KeyRound' },
   { name: skillName('Git', 'Git'), level: 'advanced', category: 'tools', icon: 'GitBranch' },
   { name: skillName('GitHub', 'GitHub'), level: 'advanced', category: 'tools', icon: 'Github' },
   { name: skillName('Linux', 'Linux'), level: 'advanced', category: 'tools', icon: 'Terminal' },
   { name: skillName('Docker', 'Docker'), level: 'beginner', category: 'tools', icon: 'Container' },
+  { name: skillName('Tests automatisés (Pest)', 'Automated tests (Pest)'), level: 'intermediate', category: 'tools', icon: 'FlaskConical' },
+  { name: skillName('CI/CD (GitHub Actions)', 'CI/CD (GitHub Actions)'), level: 'beginner', category: 'tools', icon: 'Workflow' },
+  { name: skillName('Déploiement (Render, Vercel)', 'Deployment (Render, Vercel)'), level: 'intermediate', category: 'tools', icon: 'Rocket' },
   { name: skillName('VS Code', 'VS Code'), level: 'advanced', category: 'tools', icon: 'Code' },
   { name: skillName('Shell', 'Shell'), level: 'intermediate', category: 'languages', icon: 'Terminal' },
   { name: skillName('SQL', 'SQL'), level: 'intermediate', category: 'languages', icon: 'Database' },
@@ -222,8 +225,8 @@ export const SERVICES: Service[] = [
   {
     title: { fr: 'Applications web full-stack', en: 'Full-Stack Web Apps' },
     description: {
-      fr: "Développement d'applications complètes avec back-office admin, base de données MySQL et gestion CRUD, en PHP/Laravel.",
-      en: "Complete applications with an admin back-office, MySQL database and CRUD management, in PHP/Laravel.",
+      fr: "Développement d'applications complètes en PHP/Laravel : back-office admin, base de données, gestion CRUD, API REST sécurisée et tests automatisés, jusqu'à la mise en ligne.",
+      en: "Complete PHP/Laravel applications: admin back-office, database, CRUD management, secured REST API and automated tests, all the way to going live.",
     },
     icon: 'LayoutGrid',
   },

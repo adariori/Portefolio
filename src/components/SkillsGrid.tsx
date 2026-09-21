@@ -23,6 +23,9 @@ import {
   FileCode2,
   Coffee,
   Cpu,
+  FlaskConical,
+  Workflow,
+  Rocket,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -32,7 +35,7 @@ import {
 const ICONS: Record<string, LucideIcon> = {
   Layout, Palette, Braces, Server, Boxes, Atom, Wind, Layers, Database,
   Webhook, KeyRound, GitBranch, Github, Terminal, Container, Code,
-  FileCode2, Coffee, Cpu,
+  FileCode2, Coffee, Cpu, FlaskConical, Workflow, Rocket,
 };
 
 // Rendered in this fixed order regardless of how SKILLS is sorted, so the
