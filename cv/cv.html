@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>cv.html</title>
+<!--
+  Source du CV (public/cv.pdf). Régénérer le PDF avec :
+  google-chrome --headless=new --no-sandbox --disable-gpu --no-pdf-header-footer \
+    --print-to-pdf=public/cv.pdf cv/cv.html
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: Arial, Helvetica, sans-serif; color: #64748b; font-size: 9px; line-height: 1.45; }
+
+  .page { width: 210mm; height: 296.6mm; display: flex; flex-direction: column; overflow: hidden; }
+
+  header { background: #0f172a; color: #fff; padding: 32px 20mm 30px; }
+  header h1 { font-size: 24px; font-weight: 700; line-height: 1.2; }
+  header .title { margin-top: 12px; color: #3b82f6; font-size: 10.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; }
+  header .contact { margin-top: 14px; color: #cbd5e1; font-size: 9.5px; }
+  header .contact a { color: #60a5fa; text-decoration: none; }
+
+  main { padding: 6px 20mm 0; flex: 1; }
+
+  h2 { display: flex; align-items: center; margin: 20px 0 10px; padding-left: 9px; border-left: 3px solid #2563eb; color: #0f172a; font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; line-height: 24px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: #e2e8f0; margin-left: 12px; }
+  main > h2:first-child { margin-top: 18px; }
+
+  .about { padding-left: 12px; }
+  .about p + p { margin-top: 5px; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 36px; align-items: start; }
+  .cols > div > h2:first-child { margin-top: 12px; }
+  .cols > div { padding-left: 0; }
+  .block { padding-left: 12px; }
+
+  .item + .item { margin-top: 9px; }
+  .item .t { color: #0f172a; font-size: 10.5px; font-weight: 700; line-height: 1.25; }
+  .item .issuer { color: #0f172a; font-size: 8.5px; font-weight: 700; margin-top: 1px; }
+  .item .meta { color: #2563eb; font-size: 8.5px; font-style: italic; margin-top: 1px; }
+  .item .d { position: relative; margin-top: 3px; padding-left: 13px; }
+  .item .d::before { content: ""; position: absolute; left: 0; top: 2px; width: 7px; height: 7px; border-radius: 50%; background: #2563eb; }
+  .item .t.proj { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .item .link { color: #2563eb; font-size: 8px; font-weight: 400; }
+
+  .cat { margin: 10px 0 5px; color: #64748b; font-size: 7.5px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+  .cat:first-child { margin-top: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px 5px; }
+  .chip { background: #eff6ff; color: #1d4ed8; border-radius: 9px; padding: 3.5px 9px; font-size: 8px; font-weight: 700; }
+
+  footer { background: #0f172a; color: #94a3b8; text-align: center; font-size: 8.5px; padding: 15px 20mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Adéliyi Odjouola Moshood Ariori Olorounko</h1>
+    <div class="title">Étudiant en Architecture Logicielle · Développeur Web Fullstack</div>
+    <div class="contact">+229 01 61 87 32 98 · adariori3@gmail.com · <a>github.com/adariori</a> · <a>linkedin.com/in/adeliyi-ariori</a></div>
+  </header>
+
+  <main>
+    <h2>À propos</h2>
+    <div class="about">
+      <p>Développeur fullstack basé à Cotonou, Bénin.</p>
+      <p>Je conçois des applications web complètes — front React, back Laravel/PHP, bases MySQL et PostgreSQL, avec API REST, tests automatisés et déploiement continu.</p>
+      <p>Projets réalisés : sites vitrines, back-offices, menus numériques, apps de gestion — tous documentés sur GitHub, la plupart en ligne.</p>
+      <p>Étudiant en Architecture Logicielle à ESGIS — disponible pour un stage ou une collaboration.</p>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h2>Expériences</h2>
+        <div class="block">
+          <div class="item">
+            <div class="t">Développeur web freelance</div>
+            <div class="meta">Projets personnels · 2024 - Présent</div>
+            <div class="d">Conception et livraison de sites vitrines et applications web (React, Laravel, PHP/MySQL) — Le Carré Bar &amp; Lounge, Fighting Spirit Karate Club, et autres.</div>
+          </div>
+        </div>
+
+        <h2>Formation</h2>
+        <div class="block">
+          <div class="item">
+            <div class="t">Licence Informatique, option Architecture Logicielle (AL) — ESGIS (en cours)</div>
+            <div class="meta">2025 - 2026</div>
+          </div>
+          <div class="item">
+            <div class="t">Formation développement web (HTML / CSS / JavaScript / PHP)</div>
+            <div class="meta">2025</div>
+          </div>
+        </div>
+
+        <h2>Certifications</h2>
+        <div class="block">
+          <div class="item">
+            <div class="t">Développement Web</div>
+            <div class="issuer">Centre de Formation King Soft Digital</div>
+            <div class="meta">HTML5 / CSS / JavaScript / PHP / MySQL · Juin - Sept. 2025 · Très bien</div>
+          </div>
+          <div class="item">
+            <div class="t">Laravel</div>
+            <div class="issuer">Centre de Formation King Soft Digital</div>
+            <div class="meta">2026</div>
+          </div>
+        </div>
+
+        <h2>Langues</h2>
+        <div class="block">
+          <p><b style="color:#64748b">Français</b> — Langue maternelle</p>
+          <p style="margin-top:2px"><b style="color:#64748b">Anglais</b> — Lecture technique et conversation de base</p>
+        </div>
+
+        <h2>Soft skills</h2>
+        <div class="block">Autonomie · Rigueur · Esprit d'équipe · Curiosité</div>
+
+        <h2>Centres d'intérêt</h2>
+        <div class="block">Jeux vidéo · Lecture &amp; Cinéma · Musique · Sport</div>
+      </div>
+
+      <div>
+        <h2>Compétences</h2>
+        <div class="block">
+          <div class="cat">Front-end</div>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span></div>
+          <div class="cat">Back-end</div>
+          <div class="chips"><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">API REST</span><span class="chip">Authentification &amp; autorisations</span></div>
+          <div class="cat">Outils</div>
+          <div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Tests automatisés (Pest)</span><span class="chip">CI/CD (GitHub Actions)</span><span class="chip">Déploiement (Render, Vercel)</span><span class="chip">VS Code</span></div>
+          <div class="cat">Langages</div>
+          <div class="chips"><span class="chip">Shell</span><span class="chip">SQL</span></div>
+          <div class="cat">Notions académiques</div>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Java</span><span class="chip">C / C++</span></div>
+        </div>
+
+        <h2>Projets</h2>
+        <div class="block">
+          <div class="item">
+            <div class="t proj"><span>Braise Marine</span><span class="link">github.com/adariori/braise_marine</span></div>
+            <div class="d">Projet lié à ma certification web (PHP/MySQL/JS) — app complète, API backend + front-end, pour un restaurant (commande, réservation, gestion admin).</div>
+          </div>
+          <div class="item">
+            <div class="t proj"><span>Portfolio</span><span class="link">github.com/adariori/Portefolio</span></div>
+            <div class="d">Ce site : bilingue FR/EN (système de traduction fait maison), animations Framer Motion, accessibilité et SEO soignés.</div>
+          </div>
+          <div class="item">
+            <div class="t proj"><span>Le Carré Bar &amp; Lounge</span><span class="link">github.com/adariori/Mlk-229-bar-lounge</span></div>
+            <div class="d">Menu numérique QR code avec commande WhatsApp (demande client, suivi régulier assuré).</div>
+          </div>
+          <div class="item">
+            <div class="t proj"><span>EventHub</span><span class="link">github.com/adariori/EventHub</span></div>
+            <div class="d">Plateforme d'événements (Laravel) : inscriptions, catégories, commentaires, API sécurisée (Sanctum), 50 tests Pest.</div>
+          </div>
+          <div class="item">
+            <div class="t proj"><span>DevBlog</span><span class="link">github.com/adariori/DevBlog</span></div>
+            <div class="d">Blog Laravel, projet de formation : API REST sécurisée, 29 tests Pest, déploiement continu (Docker + GitHub Actions).</div>
+          </div>
+          <div class="item">
+            <div class="t proj"><span>Technop</span><span class="link">github.com/adariori/Technop</span></div>
+            <div class="d">Site vitrine Laravel — projet scolaire.</div>
+          </div>
+          <div class="item">
+            <div class="t proj"><span>TechStock</span><span class="link">github.com/adariori/Techstock</span></div>
+            <div class="d">Gestion de parc informatique (Laravel) — projet scolaire.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>Cotonou, Bénin · portefolio-nine-iota.vercel.app</footer>
+</div>
+</body>
+</html>
