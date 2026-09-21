@@ -69,6 +69,16 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/adariori/Fighting-Spirit-Karate-Club"
   },
   {
+    name: "EventHub",
+    description: {
+      fr: "Plateforme de gestion et de découverte d'événements : comptes utilisateurs, CRUD d'événements avec catégories et image de couverture, inscriptions, commentaires et API JSON sécurisée par token. Autorisations par Policies, validation par Form Requests et 50 tests Pest.",
+      en: "An event management and discovery platform: user accounts, event CRUD with categories and cover images, registrations, comments and a token-secured JSON API. Policy-based authorization, Form Request validation and 50 Pest tests.",
+    },
+    image: "/eventhub.webp",
+    tags: ["Laravel", "PHP", "Tailwind CSS", "Sanctum", "Pest"],
+    repoUrl: "https://github.com/adariori/EventHub"
+  },
+  {
     name: "TechStock",
     description: {
       fr: "Projet réalisé dans le cadre de ma formation pour pratiquer la modélisation de données avec Laravel : CRUD complet, relations entre modèles, et suivi d'un parc informatique (appareils, salles, catégories, historique de maintenance).",
