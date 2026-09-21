@@ -79,6 +79,17 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/adariori/EventHub"
   },
   {
+    name: "DevBlog",
+    description: {
+      fr: "Projet réalisé au fil d'une formation, du CRUD de base jusqu'à la mise en production : articles avec image de couverture, catégories et tags, commentaires modérés, API REST sécurisée par jetons Sanctum, 29 tests Pest et déploiement continu (Docker + GitHub Actions) sur Render.",
+      en: "A project built throughout a training course, from basic CRUD to production: articles with cover images, categories and tags, moderated comments, a Sanctum token-secured REST API, 29 Pest tests and continuous deployment (Docker + GitHub Actions) on Render.",
+    },
+    image: "/devblog.webp",
+    tags: ["Laravel", "PHP", "Docker", "GitHub Actions", "Pest"],
+    demoUrl: "https://devblog-fob3.onrender.com",
+    repoUrl: "https://github.com/adariori/DevBlog"
+  },
+  {
     name: "TechStock",
     description: {
       fr: "Projet réalisé dans le cadre de ma formation pour pratiquer la modélisation de données avec Laravel : CRUD complet, relations entre modèles, et suivi d'un parc informatique (appareils, salles, catégories, historique de maintenance).",
